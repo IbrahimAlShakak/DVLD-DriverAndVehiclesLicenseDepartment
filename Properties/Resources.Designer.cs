@@ -63,9 +63,19 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ApplicationsIconpng {
+        internal static System.Drawing.Bitmap AddNewPersonIcon {
             get {
-                object obj = ResourceManager.GetObject("ApplicationsIconpng", resourceCulture);
+                object obj = ResourceManager.GetObject("AddNewPersonIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ApplicationsIcon {
+            get {
+                object obj = ResourceManager.GetObject("ApplicationsIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

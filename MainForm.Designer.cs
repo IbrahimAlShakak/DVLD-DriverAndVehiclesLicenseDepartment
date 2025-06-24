@@ -57,7 +57,7 @@
             // applicationsToolStripMenuItem
             // 
             this.applicationsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.applicationsToolStripMenuItem.Image = global::DVLD_DriverAndVehiclesLicenseDepartment.Properties.Resources.ApplicationsIconpng;
+            this.applicationsToolStripMenuItem.Image = global::DVLD_DriverAndVehiclesLicenseDepartment.Properties.Resources.ApplicationsIcon;
             this.applicationsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.applicationsToolStripMenuItem.Name = "applicationsToolStripMenuItem";
             this.applicationsToolStripMenuItem.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
@@ -108,6 +108,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1726, 824);
             this.Controls.Add(this.mainMenuStrip);
             this.MainMenuStrip = this.mainMenuStrip;

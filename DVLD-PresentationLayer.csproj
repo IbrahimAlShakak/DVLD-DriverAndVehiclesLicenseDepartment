@@ -52,25 +52,34 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManagePeopleF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagePeopleF.Designer.cs">
+      <DependentUpon>ManagePeopleF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ManagePeopleF.resx">
+      <DependentUpon>ManagePeopleF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -81,19 +90,31 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Icons\ApplicationsIconpng.png" />
+    <None Include="Resources\PeopleIcon.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Icons\DriversIcon.png" />
+    <None Include="Resources\ApplicationsIconpng.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Icons\PeopleIcon.png" />
+    <None Include="Resources\DriversIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Icons\UsersIcon.png" />
+    <None Include="Resources\PeopleIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Icons\SettingsIcon.png" />
+    <None Include="Resources\SettingsIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UsersIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddNewPersonIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DVLD-BusinessLayer\DVLD-BusinessLayer.csproj">
+      <Project>{333ec835-8aa1-4407-9025-abef6f54334f}</Project>
+      <Name>DVLD-BusinessLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
