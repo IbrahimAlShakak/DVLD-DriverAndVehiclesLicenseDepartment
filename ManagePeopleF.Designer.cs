@@ -108,6 +108,7 @@
             this.btnAddNewPerson.Size = new System.Drawing.Size(89, 71);
             this.btnAddNewPerson.TabIndex = 7;
             this.btnAddNewPerson.UseVisualStyleBackColor = false;
+            this.btnAddNewPerson.Click += new System.EventHandler(this.btnAddNewPerson_Click);
             // 
             // pictureBox1
             // 

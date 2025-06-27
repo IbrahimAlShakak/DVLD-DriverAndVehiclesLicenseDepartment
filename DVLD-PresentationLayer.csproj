@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddOrEditPersonInfoF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddOrEditPersonInfoF.Designer.cs">
+      <DependentUpon>AddOrEditPersonInfoF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrlPersonInfoFillCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrlPersonInfoFillCard.Designer.cs">
+      <DependentUpon>ctrlPersonInfoFillCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +72,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddOrEditPersonInfoF.resx">
+      <DependentUpon>AddOrEditPersonInfoF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrlPersonInfoFillCard.resx">
+      <DependentUpon>ctrlPersonInfoFillCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,6 +133,42 @@
       <Project>{333ec835-8aa1-4407-9025-abef6f54334f}</Project>
       <Name>DVLD-BusinessLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NameIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NationalNoIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GenderIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EmailIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddressIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BirthDateIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PhoneIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CountryIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SaveIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CloseIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NoImageIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IDIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

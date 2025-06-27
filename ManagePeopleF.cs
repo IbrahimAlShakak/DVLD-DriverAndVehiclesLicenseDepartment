@@ -25,5 +25,11 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
 
 
         }
+
+        private void btnAddNewPerson_Click(object sender, EventArgs e)
+        {
+            AddOrEditPersonInfoF addOrEditPersonInfoF = new AddOrEditPersonInfoF(-1);
+            addOrEditPersonInfoF.Show();
+        }
     }
 }
