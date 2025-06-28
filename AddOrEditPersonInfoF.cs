@@ -16,5 +16,20 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
         {
             InitializeComponent();
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if(!ctrlPersonInfoFillCard.allFieldsValid) 
+            {
+                MessageBox.Show("Please Make sure all the input fields without erros !", "Saving Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; 
+            }
+        }
+
     }
 }

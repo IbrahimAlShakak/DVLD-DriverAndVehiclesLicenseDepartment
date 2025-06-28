@@ -46,8 +46,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.pbPersonImage = new System.Windows.Forms.PictureBox();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -67,6 +65,7 @@
             this.epLastName = new System.Windows.Forms.ErrorProvider(this.components);
             this.epNationalNo = new System.Windows.Forms.ErrorProvider(this.components);
             this.epAddress = new System.Windows.Forms.ErrorProvider(this.components);
+            this.epGender = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epEmail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epDOB)).BeginInit();
@@ -77,6 +76,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.epLastName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epNationalNo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epAddress)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epGender)).BeginInit();
             this.SuspendLayout();
             // 
             // tbFirstName
@@ -129,6 +129,7 @@
             this.rbMale.TabStop = true;
             this.rbMale.Text = "Male";
             this.rbMale.UseVisualStyleBackColor = true;
+            this.rbMale.CheckedChanged += new System.EventHandler(this.rbMale_CheckedChanged);
             // 
             // rbFemale
             // 
@@ -140,6 +141,7 @@
             this.rbFemale.TabStop = true;
             this.rbFemale.Text = "Female";
             this.rbFemale.UseVisualStyleBackColor = true;
+            this.rbFemale.CheckedChanged += new System.EventHandler(this.rbFemale_CheckedChanged);
             // 
             // tbPhone
             // 
@@ -228,30 +230,6 @@
             this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPersonImage.TabIndex = 26;
             this.pbPersonImage.TabStop = false;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Image = global::DVLD_DriverAndVehiclesLicenseDepartment.Properties.Resources.CloseIcon;
-            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(523, 551);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(163, 62);
-            this.btnClose.TabIndex = 15;
-            this.btnClose.Text = "Close";
-            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnClose.UseVisualStyleBackColor = true;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Image = global::DVLD_DriverAndVehiclesLicenseDepartment.Properties.Resources.SaveIcon;
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(692, 551);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(163, 62);
-            this.btnSave.TabIndex = 14;
-            this.btnSave.Text = "Save";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSave.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -397,6 +375,10 @@
             // 
             this.epAddress.ContainerControl = this;
             // 
+            // epGender
+            // 
+            this.epGender.ContainerControl = this;
+            // 
             // ctrlPersonInfoFillCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -409,8 +391,6 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.tbAddress);
             this.Controls.Add(this.dtpDateOfBirth);
             this.Controls.Add(this.cbCountry);
@@ -442,6 +422,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.epLastName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epNationalNo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epAddress)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epGender)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -468,8 +449,6 @@
         private System.Windows.Forms.ComboBox cbCountry;
         private System.Windows.Forms.DateTimePicker dtpDateOfBirth;
         private System.Windows.Forms.TextBox tbAddress;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
@@ -487,5 +466,6 @@
         private System.Windows.Forms.ErrorProvider epLastName;
         private System.Windows.Forms.ErrorProvider epNationalNo;
         private System.Windows.Forms.ErrorProvider epAddress;
+        private System.Windows.Forms.ErrorProvider epGender;
     }
 }

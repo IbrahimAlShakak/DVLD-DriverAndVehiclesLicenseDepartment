@@ -36,9 +36,36 @@ namespace DVLD_DataAccessLayer
             }
 
             return dt;
-
-
         }
-        
+        public static DataTable GetAllCountries()
+        {
+            DataTable dt = new DataTable();
+
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
+            string query = "SELECT * FROM Countries;";
+            SqlCommand Command = new SqlCommand(query, Connection);
+
+            try
+            {
+                Connection.Open();
+
+                SqlDataReader reader = Command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return dt;
+        }
+
     }
 }
