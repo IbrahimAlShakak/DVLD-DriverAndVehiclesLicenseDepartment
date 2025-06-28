@@ -42,7 +42,15 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
                 allFieldsValid = false; 
             }
             else if (!Regex.IsMatch(txt, @"^[A-Za-z][A-Za-z0-9]*$"))
-            { epNationalNo.SetError(tbNationalNo, "Must start with a letter and contain only letters/digits."); allFieldsValid = false; }
+            { 
+                epNationalNo.SetError(tbNationalNo, "Must start with a letter and contain only letters/digits."); 
+                allFieldsValid = false;
+            }
+            else if(clsPerson.isNarionalNoExist(tbNationalNo.Text))
+            {
+                epNationalNo.SetError(tbNationalNo, "This National Numer is already used!."); 
+                allFieldsValid = false;
+            }
             else epNationalNo.SetError(tbNationalNo, "");
         }
         private void _ValidatePhone()

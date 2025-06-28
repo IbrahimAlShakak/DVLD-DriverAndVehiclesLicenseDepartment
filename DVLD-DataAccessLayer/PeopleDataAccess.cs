@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient ;
+using System.Security.Policy;
 
 
 namespace DVLD_DataAccessLayer
@@ -28,7 +29,7 @@ namespace DVLD_DataAccessLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+               
             }
             finally
             {
@@ -58,13 +59,42 @@ namespace DVLD_DataAccessLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                
             }
             finally
             {
                 Connection.Close();
             }
             return dt;
+        }
+        public static bool isNationNoUsed(string NationalNo)
+        { 
+            bool isUsed = false;
+
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
+            string query = "SELECT NationalNo FROM PEOPLE WHERE NationalNo=@NationalNo;";
+            SqlCommand Command = new SqlCommand(query, Connection);
+            Command.Parameters.AddWithValue("@NationalNo", NationalNo);
+
+            try
+            {
+                Connection.Open();
+
+                var result = Command.ExecuteScalar();
+                if (result != null)
+                {
+                     isUsed = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                isUsed = false; 
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return isUsed;
         }
 
     }
