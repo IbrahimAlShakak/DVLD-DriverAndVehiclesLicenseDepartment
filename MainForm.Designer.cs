@@ -73,6 +73,7 @@
             this.peopleToolStripMenuItem.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
             this.peopleToolStripMenuItem.Size = new System.Drawing.Size(154, 68);
             this.peopleToolStripMenuItem.Text = "People";
+            this.peopleToolStripMenuItem.Click += new System.EventHandler(this.peopleToolStripMenuItem_Click);
             // 
             // driversToolStripMenuItem
             // 

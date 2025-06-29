@@ -13,7 +13,23 @@ namespace DVLD_DataAccessLayer
             DataTable dt = new DataTable();
 
             SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
-            string query = "SELECT * FROM People;";
+            string query = "SELECT  " +
+                "p.PersonID, " +
+                "p.NationalNo, " +
+                "p.FirstName, " +
+                "p.SecondName, " +
+                "p.ThirdName, " +
+                "p.LastName, " +
+                "CASE p.Gender " +
+                "WHEN 0 THEN 'Male' " +
+                "WHEN 1 THEN 'Female'" +
+                " END AS Gender, " +
+                "CONVERT(varchar, p.DateOfBirth, 22) AS [Date Of Birth], " +
+                "c.CountryName AS Nationality, " +
+                "p.Phone, " +
+                "p.Email " +
+                "FROM  People p " +
+                "JOIN  Countries c ON p.NationalityCountryID = c.CountryID";
             SqlCommand Command = new SqlCommand(query, Connection);
 
             try

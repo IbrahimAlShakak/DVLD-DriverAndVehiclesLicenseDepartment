@@ -12,9 +12,19 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
 {
     public partial class MainForm : Form
     {
+        private void OPenPeopleForm()
+        {
+            ManagePeopleF managePeopleF = new ManagePeopleF();
+            managePeopleF.Show();
+        }
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OPenPeopleForm();
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTitel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbFilters = new System.Windows.Forms.ComboBox();
@@ -36,8 +37,17 @@
             this.lblNumberOfRecords = new System.Windows.Forms.Label();
             this.btnAddNewPerson = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tbInputFilter = new System.Windows.Forms.TextBox();
+            this.cmsPeopleList = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmShowDetails = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAddNewPerson = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeopleList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.cmsPeopleList.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitel
@@ -53,7 +63,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 187);
+            this.label1.Location = new System.Drawing.Point(12, 177);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 25);
             this.label1.TabIndex = 2;
@@ -62,10 +72,11 @@
             // cbFilters
             // 
             this.cbFilters.FormattingEnabled = true;
-            this.cbFilters.Location = new System.Drawing.Point(108, 184);
+            this.cbFilters.Location = new System.Drawing.Point(102, 170);
             this.cbFilters.Name = "cbFilters";
-            this.cbFilters.Size = new System.Drawing.Size(169, 32);
+            this.cbFilters.Size = new System.Drawing.Size(187, 32);
             this.cbFilters.TabIndex = 3;
+            this.cbFilters.SelectedIndexChanged += new System.EventHandler(this.cbFilters_SelectedIndexChanged);
             // 
             // dgvPeopleList
             // 
@@ -73,6 +84,7 @@
             this.dgvPeopleList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgvPeopleList.BackgroundColor = System.Drawing.Color.White;
             this.dgvPeopleList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPeopleList.ContextMenuStrip = this.cmsPeopleList;
             this.dgvPeopleList.Location = new System.Drawing.Point(17, 222);
             this.dgvPeopleList.Name = "dgvPeopleList";
             this.dgvPeopleList.RowHeadersWidth = 51;
@@ -103,9 +115,9 @@
             this.btnAddNewPerson.BackColor = System.Drawing.Color.Transparent;
             this.btnAddNewPerson.BackgroundImage = global::DVLD_DriverAndVehiclesLicenseDepartment.Properties.Resources.AddNewPersonIcon;
             this.btnAddNewPerson.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAddNewPerson.Location = new System.Drawing.Point(1633, 145);
+            this.btnAddNewPerson.Location = new System.Drawing.Point(1566, 135);
             this.btnAddNewPerson.Name = "btnAddNewPerson";
-            this.btnAddNewPerson.Size = new System.Drawing.Size(89, 71);
+            this.btnAddNewPerson.Size = new System.Drawing.Size(156, 71);
             this.btnAddNewPerson.TabIndex = 7;
             this.btnAddNewPerson.UseVisualStyleBackColor = false;
             this.btnAddNewPerson.Click += new System.EventHandler(this.btnAddNewPerson_Click);
@@ -120,12 +132,72 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // tbInputFilter
+            // 
+            this.tbInputFilter.Location = new System.Drawing.Point(305, 173);
+            this.tbInputFilter.Name = "tbInputFilter";
+            this.tbInputFilter.Size = new System.Drawing.Size(187, 29);
+            this.tbInputFilter.TabIndex = 8;
+            this.tbInputFilter.Visible = false;
+            this.tbInputFilter.TextChanged += new System.EventHandler(this.tbInputFilter_TextChanged);
+            this.tbInputFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbInputFilter_KeyPress);
+            // 
+            // cmsPeopleList
+            // 
+            this.cmsPeopleList.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsPeopleList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmShowDetails,
+            this.toolStripSeparator1,
+            this.tsmAddNewPerson,
+            this.tsmEdit,
+            this.tsmDelete,
+            this.toolStripSeparator2});
+            this.cmsPeopleList.Name = "cmsPeopleList";
+            this.cmsPeopleList.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.cmsPeopleList.ShowImageMargin = false;
+            this.cmsPeopleList.Size = new System.Drawing.Size(163, 112);
+            // 
+            // tsmShowDetails
+            // 
+            this.tsmShowDetails.Name = "tsmShowDetails";
+            this.tsmShowDetails.Size = new System.Drawing.Size(210, 24);
+            this.tsmShowDetails.Text = "Show Details";
+            // 
+            // tsmAddNewPerson
+            // 
+            this.tsmAddNewPerson.Name = "tsmAddNewPerson";
+            this.tsmAddNewPerson.Size = new System.Drawing.Size(210, 24);
+            this.tsmAddNewPerson.Text = "Add New Person";
+            // 
+            // tsmEdit
+            // 
+            this.tsmEdit.Name = "tsmEdit";
+            this.tsmEdit.Size = new System.Drawing.Size(210, 24);
+            this.tsmEdit.Text = "Edit";
+            // 
+            // tsmDelete
+            // 
+            this.tsmDelete.Name = "tsmDelete";
+            this.tsmDelete.Size = new System.Drawing.Size(210, 24);
+            this.tsmDelete.Text = "Delete";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(159, 6);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(159, 6);
+            // 
             // ManagePeopleF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1734, 950);
+            this.Controls.Add(this.tbInputFilter);
             this.Controls.Add(this.btnAddNewPerson);
             this.Controls.Add(this.lblNumberOfRecords);
             this.Controls.Add(this.label2);
@@ -139,6 +211,7 @@
             this.Text = "Manage People";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeopleList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.cmsPeopleList.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,5 +227,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblNumberOfRecords;
         private System.Windows.Forms.Button btnAddNewPerson;
+        private System.Windows.Forms.TextBox tbInputFilter;
+        private System.Windows.Forms.ContextMenuStrip cmsPeopleList;
+        private System.Windows.Forms.ToolStripMenuItem tsmShowDetails;
+        private System.Windows.Forms.ToolStripMenuItem tsmAddNewPerson;
+        private System.Windows.Forms.ToolStripMenuItem tsmEdit;
+        private System.Windows.Forms.ToolStripMenuItem tsmDelete;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
