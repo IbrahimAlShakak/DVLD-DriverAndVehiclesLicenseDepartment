@@ -14,9 +14,16 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
 {
     public partial class ManagePeopleF : Form
     {
-        private DataTable _dataAllPeoplr = clsPerson.GetAllPeopleList();
+        private void _refresh()
+        {
+            _LoadData();
+            _UpdateCountOfRecords();
+            _loadFilters();
+        }
+        private DataTable _dataAllPeoplr;
         private void _LoadData()
         {
+            _dataAllPeoplr = clsPerson.GetAllPeopleList(); // Refresh from DB
             dgvPeopleList.DataSource = _dataAllPeoplr;
            
         }
@@ -55,19 +62,35 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
 
             return filteredTable;
         }
+        private void AddOrEditForm(int ID = -1)
+        {
+            AddOrEditPersonInfoF addOrEditPersonInfoF = new AddOrEditPersonInfoF(ID);
+            addOrEditPersonInfoF.Show();
+        }
+        private int _GetIdOfSelectedRow()
+        {
+            return Convert.ToInt32(dgvPeopleList.CurrentRow.Cells["PersonID"].Value);
+        }
+        private void _deletePersonInfo()
+        {
+            if (clsPerson.DeletePersonInfo(_GetIdOfSelectedRow()))
+            {
+                MessageBox.Show("Person Info of selected row is Deleted :)", "Delete Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _refresh();
+            }
+            else
+            {
+                MessageBox.Show("Fail to delete person info :(", "Delete Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         public ManagePeopleF()
         {
             InitializeComponent();
-            _LoadData();
-            _UpdateCountOfRecords();
-            _loadFilters();
+            _refresh();
         }
 
-        private void btnAddNewPerson_Click(object sender, EventArgs e)
-        {
-            AddOrEditPersonInfoF addOrEditPersonInfoF = new AddOrEditPersonInfoF(-1);
-            addOrEditPersonInfoF.Show();
-        }
+        
         private void cbFilters_SelectedIndexChanged(object sender, EventArgs e)
         {
             tbInputFilter.Visible = true;
@@ -84,12 +107,23 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
                     }
                 }
         }
-
         private void tbInputFilter_TextChanged(object sender, EventArgs e)
         {
             _LoadFilteredData(_GetFilterData());
             _UpdateCountOfRecords();
-
+        }
+        private void btnAddNewPerson_Click(object sender, EventArgs e)
+        {
+            AddOrEditForm();
+        }
+        private void tsmEdit_Click(object sender, EventArgs e)
+        {
+            AddOrEditForm(_GetIdOfSelectedRow());
+        }
+        private void tsmDelete_Click(object sender, EventArgs e)
+        {
+           
+            _deletePersonInfo();
         }
     }
 }

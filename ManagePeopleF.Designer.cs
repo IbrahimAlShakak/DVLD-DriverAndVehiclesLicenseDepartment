@@ -33,21 +33,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbFilters = new System.Windows.Forms.ComboBox();
             this.dgvPeopleList = new System.Windows.Forms.DataGridView();
+            this.cmsPeopleList = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmShowDetails = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmAddNewPerson = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.label2 = new System.Windows.Forms.Label();
             this.lblNumberOfRecords = new System.Windows.Forms.Label();
             this.btnAddNewPerson = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tbInputFilter = new System.Windows.Forms.TextBox();
-            this.cmsPeopleList = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tsmShowDetails = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmAddNewPerson = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmEdit = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeopleList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.cmsPeopleList.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitel
@@ -91,6 +91,57 @@
             this.dgvPeopleList.RowTemplate.Height = 31;
             this.dgvPeopleList.Size = new System.Drawing.Size(1705, 691);
             this.dgvPeopleList.TabIndex = 4;
+            // 
+            // cmsPeopleList
+            // 
+            this.cmsPeopleList.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsPeopleList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmShowDetails,
+            this.toolStripSeparator1,
+            this.tsmAddNewPerson,
+            this.tsmEdit,
+            this.tsmDelete,
+            this.toolStripSeparator2});
+            this.cmsPeopleList.Name = "cmsPeopleList";
+            this.cmsPeopleList.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.cmsPeopleList.ShowImageMargin = false;
+            this.cmsPeopleList.Size = new System.Drawing.Size(186, 140);
+            // 
+            // tsmShowDetails
+            // 
+            this.tsmShowDetails.Name = "tsmShowDetails";
+            this.tsmShowDetails.Size = new System.Drawing.Size(185, 24);
+            this.tsmShowDetails.Text = "Show Details";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(182, 6);
+            // 
+            // tsmAddNewPerson
+            // 
+            this.tsmAddNewPerson.Name = "tsmAddNewPerson";
+            this.tsmAddNewPerson.Size = new System.Drawing.Size(185, 24);
+            this.tsmAddNewPerson.Text = "Add New Person";
+            // 
+            // tsmEdit
+            // 
+            this.tsmEdit.Name = "tsmEdit";
+            this.tsmEdit.Size = new System.Drawing.Size(185, 24);
+            this.tsmEdit.Text = "Edit";
+            this.tsmEdit.Click += new System.EventHandler(this.tsmEdit_Click);
+            // 
+            // tsmDelete
+            // 
+            this.tsmDelete.Name = "tsmDelete";
+            this.tsmDelete.Size = new System.Drawing.Size(185, 24);
+            this.tsmDelete.Text = "Delete";
+            this.tsmDelete.Click += new System.EventHandler(this.tsmDelete_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(182, 6);
             // 
             // label2
             // 
@@ -142,55 +193,6 @@
             this.tbInputFilter.TextChanged += new System.EventHandler(this.tbInputFilter_TextChanged);
             this.tbInputFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbInputFilter_KeyPress);
             // 
-            // cmsPeopleList
-            // 
-            this.cmsPeopleList.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.cmsPeopleList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmShowDetails,
-            this.toolStripSeparator1,
-            this.tsmAddNewPerson,
-            this.tsmEdit,
-            this.tsmDelete,
-            this.toolStripSeparator2});
-            this.cmsPeopleList.Name = "cmsPeopleList";
-            this.cmsPeopleList.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.cmsPeopleList.ShowImageMargin = false;
-            this.cmsPeopleList.Size = new System.Drawing.Size(163, 112);
-            // 
-            // tsmShowDetails
-            // 
-            this.tsmShowDetails.Name = "tsmShowDetails";
-            this.tsmShowDetails.Size = new System.Drawing.Size(210, 24);
-            this.tsmShowDetails.Text = "Show Details";
-            // 
-            // tsmAddNewPerson
-            // 
-            this.tsmAddNewPerson.Name = "tsmAddNewPerson";
-            this.tsmAddNewPerson.Size = new System.Drawing.Size(210, 24);
-            this.tsmAddNewPerson.Text = "Add New Person";
-            // 
-            // tsmEdit
-            // 
-            this.tsmEdit.Name = "tsmEdit";
-            this.tsmEdit.Size = new System.Drawing.Size(210, 24);
-            this.tsmEdit.Text = "Edit";
-            // 
-            // tsmDelete
-            // 
-            this.tsmDelete.Name = "tsmDelete";
-            this.tsmDelete.Size = new System.Drawing.Size(210, 24);
-            this.tsmDelete.Text = "Delete";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(159, 6);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(159, 6);
-            // 
             // ManagePeopleF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -210,8 +212,8 @@
             this.ShowIcon = false;
             this.Text = "Manage People";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeopleList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.cmsPeopleList.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

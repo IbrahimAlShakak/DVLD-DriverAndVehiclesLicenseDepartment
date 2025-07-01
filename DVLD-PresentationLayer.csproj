@@ -52,12 +52,6 @@
     <Compile Include="AddOrEditPersonInfoF.Designer.cs">
       <DependentUpon>AddOrEditPersonInfoF.cs</DependentUpon>
     </Compile>
-    <Compile Include="ctrlPersonInfoFillCard.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ctrlPersonInfoFillCard.Designer.cs">
-      <DependentUpon>ctrlPersonInfoFillCard.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,9 +68,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddOrEditPersonInfoF.resx">
       <DependentUpon>AddOrEditPersonInfoF.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ctrlPersonInfoFillCard.resx">
-      <DependentUpon>ctrlPersonInfoFillCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
