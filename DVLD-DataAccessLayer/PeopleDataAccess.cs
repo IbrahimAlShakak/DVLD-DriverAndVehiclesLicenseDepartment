@@ -181,15 +181,15 @@ namespace DVLD_DataAccessLayer
             Command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
             Command.Parameters.AddWithValue("@Gender", Gender);
 
-            if (Email != "")
+            if (!string.IsNullOrEmpty(Email))
                 Command.Parameters.AddWithValue("@Email", Email);
             else
                 Command.Parameters.AddWithValue("@Email", System.DBNull.Value);
-            if (ThirdName != "")
+            if (!string.IsNullOrEmpty(ThirdName))
                 Command.Parameters.AddWithValue("@ThirdName", ThirdName);
             else
                 Command.Parameters.AddWithValue("@ThirdName", System.DBNull.Value);
-            if (ImagePath != "")
+            if (!string.IsNullOrEmpty(ImagePath))
                 Command.Parameters.AddWithValue("@ImagePath", ImagePath);
             else
                 Command.Parameters.AddWithValue("@ImagePath", System.DBNull.Value);
@@ -238,15 +238,15 @@ namespace DVLD_DataAccessLayer
             Command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
             Command.Parameters.AddWithValue("@Gender", Gender);
 
-            if (Email != "")
+            if (!string.IsNullOrEmpty(Email))
                 Command.Parameters.AddWithValue("@Email", Email);
             else
                 Command.Parameters.AddWithValue("@Email", System.DBNull.Value);
-            if (ThirdName != "")
+            if (!string.IsNullOrEmpty(ThirdName))
                 Command.Parameters.AddWithValue("@ThirdName", ThirdName);
             else
                 Command.Parameters.AddWithValue("@ThirdName", System.DBNull.Value);
-            if (ImagePath != "")
+            if (!string.IsNullOrEmpty(ImagePath))
                 Command.Parameters.AddWithValue("@ImagePath", ImagePath);
             else
                 Command.Parameters.AddWithValue("@ImagePath", System.DBNull.Value);
@@ -259,7 +259,9 @@ namespace DVLD_DataAccessLayer
                 rowsAffected = Command.ExecuteNonQuery();
             }
             catch (Exception ex)
+
             {
+                Console.WriteLine(ex.Message);
                 rowsAffected = 0;
             }
             finally

@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLD_BusinessLayer;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DVLD_DriverAndVehiclesLicenseDepartment
 {
@@ -65,7 +58,9 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
         private void AddOrEditForm(int ID = -1)
         {
             AddOrEditPersonInfoF addOrEditPersonInfoF = new AddOrEditPersonInfoF(ID);
-            addOrEditPersonInfoF.Show();
+            addOrEditPersonInfoF.ShowDialog();
+            _refresh();
+
         }
         private int _GetIdOfSelectedRow()
         {
@@ -73,10 +68,16 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
         }
         private void _deletePersonInfo()
         {
-            if (clsPerson.DeletePersonInfo(_GetIdOfSelectedRow()))
+            int PersonID = _GetIdOfSelectedRow();
+            clsPerson Person = clsPerson.Find(PersonID);
+            if (Person.DeleteImageFile())
             {
-                MessageBox.Show("Person Info of selected row is Deleted :)", "Delete Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                _refresh();
+                if(Person.DeletePersonInfo())
+                {
+                    MessageBox.Show("Person Info of selected row is Deleted :)", "Delete Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _refresh();
+                }
+ 
             }
             else
             {
@@ -115,10 +116,12 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
         private void btnAddNewPerson_Click(object sender, EventArgs e)
         {
             AddOrEditForm();
+            
         }
         private void tsmEdit_Click(object sender, EventArgs e)
         {
             AddOrEditForm(_GetIdOfSelectedRow());
+            
         }
         private void tsmDelete_Click(object sender, EventArgs e)
         {

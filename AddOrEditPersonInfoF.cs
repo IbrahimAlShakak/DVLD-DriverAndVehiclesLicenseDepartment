@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Net;
-using System.Text;
+using System.IO;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLD_BusinessLayer;
-using DVLD_DriverAndVehiclesLicenseDepartment;
-using System.IO;
 
 namespace DVLD_DriverAndVehiclesLicenseDepartment
 {
@@ -28,14 +20,14 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
         {
             var txt = tb.Text.Trim();
             if (txt.Length == 0) { ep.SetError(tb, $"{name} is required."); _allFieldsValid = false; }
-            else if (!Regex.IsMatch(txt, @"^[A-Za-z]+$"))
+            else if (!Regex.IsMatch(txt, @"^[A-Za-z\-]+$"))
             { ep.SetError(tb, $"{name} must contain only letters."); _allFieldsValid = false; }
             else ep.SetError(tb, "");
         }
         private void _ValidateOptionalLetters(TextBox tb, ErrorProvider ep, string name)
         {
             var txt = tb.Text.Trim();
-            if (txt.Length > 0 && !Regex.IsMatch(txt, @"^[A-Za-z]+$"))
+            if (txt.Length > 0 && !Regex.IsMatch(txt, @"^[A-Za-z\-]+$"))
             { ep.SetError(tb, $"{name} must contain only letters."); _allFieldsValid = false; }
             else ep.SetError(tb, "");
         }
@@ -92,8 +84,6 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
         }
         private void _ValidateGender()
         {
-            {
-                // neither button is selected?
                 if (!rbMale.Checked && !rbFemale.Checked)
                 {
                     epGender.SetError(rbFemale, "Please select a gender.");
@@ -101,7 +91,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
                 }
                 else
                     epGender.SetError(rbMale, "");
-            }
+            
 
         }
         private void _LoadCountries()
@@ -126,7 +116,21 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
             _ValidateGender();
         }
         // ------------------------------------------------------------------------------------------------------
-        private void _LoadPersonInfoByID(int ID)
+        private void _SetAddNewMode()
+        {
+            _mode = enFormMode.AddNewMode;
+            lblTitel.Text = "Add New Person";
+            lblPersonID.Text = "N/A";
+            
+        }
+        private void _SetEditMode()
+        {
+            _mode = enFormMode.EditMode;
+            lblTitel.Text = "Edit Person Info";
+            lblPersonID.Text = Person.PersonId.ToString();
+            _GetPersonInfoByID(Person.PersonId);
+        }
+        private void _GetPersonInfoByID(int ID)
         {
             tbFirstName.Text = Person.FirstName;
             tbSecondName.Text = Person.SecondName;
@@ -143,15 +147,14 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
             if (!string.IsNullOrWhiteSpace(Person.ImagePath) && File.Exists(Person.ImagePath))
             {
                 pbPersonImage.Image = Image.FromFile(Person.ImagePath);
+                llRemoveImage.Visible = true;
             }
         }
         private void _CheckFormMode(int ID)
         {
             if (ID == -1)
             {
-                _mode = enFormMode.AddNewMode;
-                lblTitel.Text = "Add New Person";
-                lblPersonID.Text = "N/A";
+                _SetAddNewMode();
                 Person = new clsPerson();
             }
             else
@@ -159,12 +162,42 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
                 Person = clsPerson.Find(ID);
                 if (Person != null)
                 {
-                    _mode = enFormMode.EditMode;
-                    lblTitel.Text = "Edit Person Info";
-                    lblPersonID.Text = ID.ToString();
-                    _LoadPersonInfoByID(ID);
+                    _SetEditMode();
                 }
 
+            }
+        }
+        private void _SetPersonInfoInPerson()
+        {
+            Person.FirstName = tbFirstName.Text;
+            Person.SecondName = tbSecondName.Text;
+            if (!string.IsNullOrWhiteSpace(tbThirdName.Text)) Person.ThirdName = tbThirdName.Text;
+            Person.LastName = tbLastName.Text;
+            Person.NationalNo = tbNationalNo.Text;
+            Person.DateOfBirth = dtpDateOfBirth.Value;
+            if (rbMale.Checked) Person.Gender = 0;
+            else Person.Gender = 1;
+            Person.Phone = tbPhone.Text;
+            if (!string.IsNullOrWhiteSpace(tbEmail.Text)) Person.Email = tbEmail.Text;
+            Person.NationalityCountryID = (int)cbCountry.SelectedValue;
+            Person.Address = tbAddress.Text;
+        }
+        private void _Save()
+        {
+            _SetPersonInfoInPerson();
+
+            if (Person.Save())
+            {
+                if (_mode == enFormMode.AddNewMode)
+                {
+                    
+                        _SetEditMode();
+
+                }
+                else
+                {
+                    this.Close();
+                }
             }
         }
         public AddOrEditPersonInfoF(int ID = -1)
@@ -185,7 +218,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
 
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                if(Person.ImagePath != "") Person.DeleteImageFile(Person.ImagePath);
+                if(Person.ImagePath != "") Person.DeleteImageFile();
 
                 string ext = Path.GetExtension(ofd.FileName);
                 string newFileName = Guid.NewGuid().ToString() + ext;
@@ -207,7 +240,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
         }
         private void _RemoveImage()
         {
-            if (Person.ImagePath != "") Person.DeleteImageFile(Person.ImagePath);
+            if (Person.ImagePath != "") Person.DeleteImageFile();
             if (pbPersonImage.Image != null)
             {
                 pbPersonImage.Image.Dispose();
@@ -229,19 +262,8 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
                 MessageBox.Show("Please Make sure all the input fields without erros !", "Saving Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-           if(Person.Save()) 
-            {
-                if(_mode == enFormMode.AddNewMode)
-                {
-                    if (MessageBox.Show("Added new person info to Databasse", "Adding Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
-                        _LoadPersonInfoByID(Person.PersonId);
+            _Save();
 
-                }
-                else
-                {
-                    this.Close();
-                }
-            }
         }
         //---------------------------- Text Change || Value Change -----------------------------------------------------
         private void tbFirstName_TextChanged(object sender, EventArgs e)
