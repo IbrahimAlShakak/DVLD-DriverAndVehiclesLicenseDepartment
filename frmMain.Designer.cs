@@ -1,6 +1,6 @@
 ﻿namespace DVLD_DriverAndVehiclesLicenseDepartment
 {
-    partial class MainForm
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.

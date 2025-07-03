@@ -1,6 +1,6 @@
 ﻿namespace DVLD_DriverAndVehiclesLicenseDepartment
 {
-    partial class AddOrEditPersonInfoF
+    partial class frmAddOrEditPersonInfo
     {
         /// <summary>
         /// Required designer variable.

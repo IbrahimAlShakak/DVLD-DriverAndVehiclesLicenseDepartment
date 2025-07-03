@@ -46,34 +46,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddOrEditPersonInfoF.cs">
+    <Compile Include="People\frmAddOrEditPersonInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddOrEditPersonInfoF.Designer.cs">
-      <DependentUpon>AddOrEditPersonInfoF.cs</DependentUpon>
+    <Compile Include="People\frmAddOrEditPersonInfo.Designer.cs">
+      <DependentUpon>frmAddOrEditPersonInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManagePeopleF.cs">
+    <Compile Include="People\frmManagePeopleList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ManagePeopleF.Designer.cs">
-      <DependentUpon>ManagePeopleF.cs</DependentUpon>
+    <Compile Include="People\frmManagePeopleList.Designer.cs">
+      <DependentUpon>frmManagePeopleList.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddOrEditPersonInfoF.resx">
-      <DependentUpon>AddOrEditPersonInfoF.cs</DependentUpon>
+    <EmbeddedResource Include="People\frmAddOrEditPersonInfo.resx">
+      <DependentUpon>frmAddOrEditPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManagePeopleF.resx">
-      <DependentUpon>ManagePeopleF.cs</DependentUpon>
+    <EmbeddedResource Include="People\frmManagePeopleList.resx">
+      <DependentUpon>frmManagePeopleList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -120,9 +120,9 @@
     <None Include="Resources\AddNewPersonIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DVLD-BusinessLayer\DVLD-BusinessLayer.csproj">
+    <ProjectReference Include="..\DVLD-BusinessLayer\DVLD-Business.csproj">
       <Project>{333ec835-8aa1-4407-9025-abef6f54334f}</Project>
-      <Name>DVLD-BusinessLayer</Name>
+      <Name>DVLD-Business</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +160,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\IDIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="People\Controls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,7 +7,7 @@ using DVLD_BusinessLayer;
 
 namespace DVLD_DriverAndVehiclesLicenseDepartment
 {
-    public partial class AddOrEditPersonInfoF : Form
+    public partial class frmAddOrEditPersonInfo : Form
     {
         clsPerson Person;
         enum enFormMode {AddNewMode, EditMode };
@@ -200,7 +200,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
                 }
             }
         }
-        public AddOrEditPersonInfoF(int ID = -1)
+        public frmAddOrEditPersonInfo(int ID = -1)
         {
             InitializeComponent();
            

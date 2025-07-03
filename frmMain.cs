@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace DVLD_DriverAndVehiclesLicenseDepartment
 {
-    public partial class MainForm : Form
+    public partial class frmMain : Form
     {
         private void OPenPeopleForm()
         {
-            ManagePeopleF managePeopleF = new ManagePeopleF();
+            frmManagePeopleList managePeopleF = new frmManagePeopleList();
             managePeopleF.Show();
         }
-        public MainForm()
+        public frmMain()
         {
             InitializeComponent();
         }

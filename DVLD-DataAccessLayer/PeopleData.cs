@@ -6,7 +6,7 @@ using System.Security.Policy;
 
 namespace DVLD_DataAccessLayer
 {
-    public static class PeopleDataAccess
+    public static class PeopleData
     {
         public static DataTable GetAllPeopleList()
         {

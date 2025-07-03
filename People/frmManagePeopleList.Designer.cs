@@ -1,6 +1,6 @@
 ﻿namespace DVLD_DriverAndVehiclesLicenseDepartment
 {
-    partial class ManagePeopleF
+    partial class frmManagePeopleList
     {
         /// <summary>
         /// Required designer variable.
@@ -45,6 +45,8 @@
             this.btnAddNewPerson = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tbInputFilter = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeopleList)).BeginInit();
             this.cmsPeopleList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -105,43 +107,44 @@
             this.cmsPeopleList.Name = "cmsPeopleList";
             this.cmsPeopleList.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.cmsPeopleList.ShowImageMargin = false;
-            this.cmsPeopleList.Size = new System.Drawing.Size(186, 140);
+            this.cmsPeopleList.Size = new System.Drawing.Size(163, 112);
             // 
             // tsmShowDetails
             // 
             this.tsmShowDetails.Name = "tsmShowDetails";
-            this.tsmShowDetails.Size = new System.Drawing.Size(185, 24);
+            this.tsmShowDetails.Size = new System.Drawing.Size(162, 24);
             this.tsmShowDetails.Text = "Show Details";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(182, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(159, 6);
             // 
             // tsmAddNewPerson
             // 
             this.tsmAddNewPerson.Name = "tsmAddNewPerson";
-            this.tsmAddNewPerson.Size = new System.Drawing.Size(185, 24);
+            this.tsmAddNewPerson.Size = new System.Drawing.Size(162, 24);
             this.tsmAddNewPerson.Text = "Add New Person";
+            this.tsmAddNewPerson.Click += new System.EventHandler(this.tsmAddNewPerson_Click);
             // 
             // tsmEdit
             // 
             this.tsmEdit.Name = "tsmEdit";
-            this.tsmEdit.Size = new System.Drawing.Size(185, 24);
+            this.tsmEdit.Size = new System.Drawing.Size(162, 24);
             this.tsmEdit.Text = "Edit";
             this.tsmEdit.Click += new System.EventHandler(this.tsmEdit_Click);
             // 
             // tsmDelete
             // 
             this.tsmDelete.Name = "tsmDelete";
-            this.tsmDelete.Size = new System.Drawing.Size(185, 24);
+            this.tsmDelete.Size = new System.Drawing.Size(162, 24);
             this.tsmDelete.Text = "Delete";
             this.tsmDelete.Click += new System.EventHandler(this.tsmDelete_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(182, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(159, 6);
             // 
             // label2
             // 
@@ -166,7 +169,7 @@
             this.btnAddNewPerson.BackColor = System.Drawing.Color.Transparent;
             this.btnAddNewPerson.BackgroundImage = global::DVLD_DriverAndVehiclesLicenseDepartment.Properties.Resources.AddNewPersonIcon;
             this.btnAddNewPerson.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAddNewPerson.Location = new System.Drawing.Point(1566, 135);
+            this.btnAddNewPerson.Location = new System.Drawing.Point(1566, 131);
             this.btnAddNewPerson.Name = "btnAddNewPerson";
             this.btnAddNewPerson.Size = new System.Drawing.Size(156, 71);
             this.btnAddNewPerson.TabIndex = 7;
@@ -193,12 +196,36 @@
             this.tbInputFilter.TextChanged += new System.EventHandler(this.tbInputFilter_TextChanged);
             this.tbInputFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbInputFilter_KeyPress);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Image = global::DVLD_DriverAndVehiclesLicenseDepartment.Properties.Resources.CloseIcon;
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.Location = new System.Drawing.Point(1566, 928);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(156, 52);
+            this.btnClose.TabIndex = 10;
+            this.btnClose.Text = "Close";
+            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // ManagePeopleF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1734, 950);
+            this.ClientSize = new System.Drawing.Size(1766, 1001);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.tbInputFilter);
             this.Controls.Add(this.btnAddNewPerson);
             this.Controls.Add(this.lblNumberOfRecords);
@@ -237,5 +264,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmDelete;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnClose;
     }
 }

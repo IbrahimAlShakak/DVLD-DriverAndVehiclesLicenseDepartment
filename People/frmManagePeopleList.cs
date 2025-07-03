@@ -5,7 +5,7 @@ using DVLD_BusinessLayer;
 
 namespace DVLD_DriverAndVehiclesLicenseDepartment
 {
-    public partial class ManagePeopleF : Form
+    public partial class frmManagePeopleList : Form
     {
         private void _refresh()
         {
@@ -57,7 +57,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
         }
         private void AddOrEditForm(int ID = -1)
         {
-            AddOrEditPersonInfoF addOrEditPersonInfoF = new AddOrEditPersonInfoF(ID);
+            frmAddOrEditPersonInfo addOrEditPersonInfoF = new frmAddOrEditPersonInfo(ID);
             addOrEditPersonInfoF.ShowDialog();
             _refresh();
 
@@ -85,7 +85,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
             }
         }
 
-        public ManagePeopleF()
+        public frmManagePeopleList()
         {
             InitializeComponent();
             _refresh();
@@ -127,6 +127,16 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
         {
            
             _deletePersonInfo();
+        }
+
+        private void tsmAddNewPerson_Click(object sender, EventArgs e)
+        {
+            AddOrEditForm();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
