@@ -1,117 +1,12 @@
 ﻿using System;
 using System.Data;
-using System.Data.SqlClient ;
-using System.Security.Policy;
+using System.Data.SqlClient;
 
 
 namespace DVLD_DataAccessLayer
 {
     public static class PeopleData
     {
-        public static DataTable GetAllPeopleList()
-        {
-            DataTable dt = new DataTable();
-
-            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
-            string query = "SELECT  " +
-                "p.PersonID, " +
-                "p.NationalNo, " +
-                "p.FirstName, " +
-                "p.SecondName, " +
-                "p.ThirdName, " +
-                "p.LastName, " +
-                "CASE p.Gender " +
-                "WHEN 0 THEN 'Male' " +
-                "WHEN 1 THEN 'Female'" +
-                " END AS Gender, " +
-                "CONVERT(varchar, p.DateOfBirth, 22) AS [Date Of Birth], " +
-                "c.CountryName AS Nationality, " +
-                "p.Phone, " +
-                "p.Email " +
-                "FROM  People p " +
-                "JOIN  Countries c ON p.NationalityCountryID = c.CountryID";
-            SqlCommand Command = new SqlCommand(query, Connection);
-
-            try
-            {
-                Connection.Open();
-
-                SqlDataReader reader = Command.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    dt.Load(reader);
-                }
-
-            }
-            catch (Exception ex)
-            {
-               
-            }
-            finally
-            {
-                Connection.Close();
-            }
-
-            return dt;
-        }
-        public static DataTable GetAllCountries()
-        {
-            DataTable dt = new DataTable();
-
-            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
-            string query = "SELECT * FROM Countries;";
-            SqlCommand Command = new SqlCommand(query, Connection);
-
-            try
-            {
-                Connection.Open();
-
-                SqlDataReader reader = Command.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    dt.Load(reader);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                
-            }
-            finally
-            {
-                Connection.Close();
-            }
-            return dt;
-        }
-        public static bool isNationNoUsed(string NationalNo)
-        { 
-            bool isUsed = false;
-
-            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
-            string query = "SELECT NationalNo FROM PEOPLE WHERE NationalNo=@NationalNo;";
-            SqlCommand Command = new SqlCommand(query, Connection);
-            Command.Parameters.AddWithValue("@NationalNo", NationalNo);
-
-            try
-            {
-                Connection.Open();
-
-                var result = Command.ExecuteScalar();
-                if (result != null)
-                {
-                     isUsed = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                isUsed = false; 
-            }
-            finally
-            {
-                Connection.Close();
-            }
-            return isUsed;
-        }
         public static bool GetPersonInfoByID(int PersonID, ref string NationalNo, ref string FirstName, ref string SecondName, ref string LastName, ref DateTime DateOfBirth, ref byte Gender,
             ref string Address, ref string Phone, ref int NationalityCountryID, ref string ImagePath, ref string ThirdName, ref string Email)
         {
@@ -157,8 +52,52 @@ namespace DVLD_DataAccessLayer
             }
             return isFound;
         }
+        public static bool GetPersonInfoByNationalNo(string NationalNo, ref int PersonID, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName, ref DateTime DateOfBirth, ref byte Gender,
+            ref string Address, ref string Phone, ref int NationalityCountryID, ref string ImagePath,  ref string Email)
+        {
+            bool isFound = false;
 
-        public static int AddNewPersonToDB(string NationalNo, string FirstName, string SecondName, string LastName, DateTime DateOfBirth, byte Gender,
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = "SELECT * FROM PEOPLE WHERE NationalNo=@NationalNo;";
+
+            SqlCommand Command = new SqlCommand(query, Connection);
+            Command.Parameters.AddWithValue("@NationalNo", NationalNo);
+
+            try
+            {
+                Connection.Open();
+                SqlDataReader reader = Command.ExecuteReader();
+                if (reader.Read())
+                {
+                    isFound = true;
+                    PersonID = (int)reader["PersonID"];
+                    FirstName = (string)reader["FirstName"];
+                    SecondName = (string)reader["SecondName"];
+                    ThirdName = reader["ThirdName"] == DBNull.Value ? "" : reader["ThirdName"].ToString();
+                    LastName = (string)reader["LastName"];
+                    Email = reader["Email"] == DBNull.Value ? "" : reader["Email"].ToString();
+                    DateOfBirth = (DateTime)reader["DateOfBirth"];
+                    Gender = (byte)reader["Gender"];
+                    Phone = (string)reader["Phone"];
+                    Address = (string)reader["Address"];
+                    NationalityCountryID = (int)reader["NationalityCountryID"];
+                    ImagePath = reader["ImagePath"] == DBNull.Value ? "" : reader["ImagePath"].ToString();
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                isFound = false;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return isFound;
+        }
+        public static int AddNewPerson(string NationalNo, string FirstName, string SecondName, string LastName, DateTime DateOfBirth, byte Gender,
             string Address, string Phone, int NationalityCountryID, string ImagePath = null, string ThirdName = null, string Email = null)
         {
             int newPersonID = -1;
@@ -216,7 +155,7 @@ namespace DVLD_DataAccessLayer
             }
             return newPersonID;
         }
-        public static bool UpdatePersonInfo(int PersonID, string NationalNo, string FirstName, string SecondName, string LastName, DateTime DateOfBirth, byte Gender,
+        public static bool UpdatePerson(int PersonID, string NationalNo, string FirstName, string SecondName, string LastName, DateTime DateOfBirth, byte Gender,
             string Address, string Phone, int NationalityCountryID, string ImagePath = null, string ThirdName = null, string Email = null)
         {
             int rowsAffected = 0;
@@ -271,7 +210,7 @@ namespace DVLD_DataAccessLayer
 
             return (rowsAffected > 0);
         }
-        public static bool DeletePersonWithID(int PersonID)
+        public static bool DeletePerson(int PersonID)
         {
             int rowsAffected = 0;
 
@@ -297,6 +236,139 @@ namespace DVLD_DataAccessLayer
             }
 
             return (rowsAffected > 0);
+        }
+        public static bool IsPersoExist(int PersonID)
+        {
+            bool isFound = false;
+
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
+            string query = "SELECT X=1 FROM PEOPLE WHERE PersonID=@PersonID";
+            SqlCommand Command = new SqlCommand(query, Connection);
+
+            Command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            try
+            {
+                Connection.Open();
+
+                SqlDataReader reader = Command.ExecuteReader();
+
+                isFound = reader.HasRows;
+            }
+            catch (Exception ex)
+            {
+               isFound = false;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+
+            return isFound;
+        }
+        public static bool IsPersoExist(string NationalNo)
+        {
+            bool isFound = false;
+
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
+            string query = "SELECT X=1 FROM PEOPLE WHERE NationalNo=@NationalNo";
+            SqlCommand Command = new SqlCommand(query, Connection);
+
+            Command.Parameters.AddWithValue("@NationalNo", NationalNo);
+
+            try
+            {
+                Connection.Open();
+
+                SqlDataReader reader = Command.ExecuteReader();
+
+                isFound = reader.HasRows;
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+
+            return isFound;
+        }
+        public static DataTable GetAllPeople()
+        {
+            DataTable dt = new DataTable();
+
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
+            string query = "SELECT  " +
+                "p.PersonID, " +
+                "p.NationalNo, " +
+                "p.FirstName, " +
+                "p.SecondName, " +
+                "p.ThirdName, " +
+                "p.LastName, " +
+                "CASE p.Gender " +
+                "WHEN 0 THEN 'Male' " +
+                "WHEN 1 THEN 'Female'" +
+                " END AS Gender, " +
+                "CONVERT(varchar, p.DateOfBirth, 22) AS [Date Of Birth], " +
+                "c.CountryName AS Nationality, " +
+                "p.Phone, " +
+                "p.Email " +
+                "FROM  People p " +
+                "JOIN  Countries c ON p.NationalityCountryID = c.CountryID";
+            SqlCommand Command = new SqlCommand(query, Connection);
+
+            try
+            {
+                Connection.Open();
+
+                SqlDataReader reader = Command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                Connection.Close();
+            }
+
+            return dt;
+        }
+        public static bool isNationNoUsed(string NationalNo)
+        {
+            bool isUsed = false;
+
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
+            string query = "SELECT NationalNo FROM PEOPLE WHERE NationalNo=@NationalNo;";
+            SqlCommand Command = new SqlCommand(query, Connection);
+            Command.Parameters.AddWithValue("@NationalNo", NationalNo);
+
+            try
+            {
+                Connection.Open();
+
+                var result = Command.ExecuteScalar();
+                if (result != null)
+                {
+                    isUsed = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                isUsed = false;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return isUsed;
         }
     }
 }

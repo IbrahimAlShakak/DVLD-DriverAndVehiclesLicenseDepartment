@@ -16,7 +16,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
         private DataTable _dataAllPeoplr;
         private void _LoadData()
         {
-            _dataAllPeoplr = clsPerson.GetAllPeopleList(); // Refresh from DB
+            _dataAllPeoplr = clsPerson.GetAllPeople(); // Refresh from DB
             dgvPeopleList.DataSource = _dataAllPeoplr;
            
         }
