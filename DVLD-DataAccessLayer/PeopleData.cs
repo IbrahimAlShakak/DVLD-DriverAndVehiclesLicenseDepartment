@@ -7,8 +7,8 @@ namespace DVLD_DataAccessLayer
 {
     public static class PeopleData
     {
-        public static bool GetPersonInfoByID(int PersonID, ref string NationalNo, ref string FirstName, ref string SecondName, ref string LastName, ref DateTime DateOfBirth, ref byte Gender,
-            ref string Address, ref string Phone, ref int NationalityCountryID, ref string ImagePath, ref string ThirdName, ref string Email)
+        public static bool GetPersonInfoByID(int PersonID, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName, ref string NationalNo, ref DateTime DateOfBirth, ref byte Gender,
+            ref string Address, ref string Phone, ref string Email, ref int NationalityCountryID, ref string ImagePath)
         {
             bool isFound = false;
 
@@ -53,7 +53,7 @@ namespace DVLD_DataAccessLayer
             return isFound;
         }
         public static bool GetPersonInfoByNationalNo(string NationalNo, ref int PersonID, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName, ref DateTime DateOfBirth, ref byte Gender,
-            ref string Address, ref string Phone, ref int NationalityCountryID, ref string ImagePath,  ref string Email)
+            ref string Address, ref string Phone, ref string Email, ref int NationalityCountryID, ref string ImagePath)
         {
             bool isFound = false;
 
@@ -97,8 +97,8 @@ namespace DVLD_DataAccessLayer
             }
             return isFound;
         }
-        public static int AddNewPerson(string NationalNo, string FirstName, string SecondName, string LastName, DateTime DateOfBirth, byte Gender,
-            string Address, string Phone, int NationalityCountryID, string ImagePath = null, string ThirdName = null, string Email = null)
+        public static int AddNewPerson( string FirstName, string SecondName, string ThirdName, string LastName, string NationalNo, DateTime DateOfBirth, byte Gender,
+            string Address, string Phone, string Email, int NationalityCountryID, string ImagePath)
         {
             int newPersonID = -1;
 
@@ -156,8 +156,8 @@ namespace DVLD_DataAccessLayer
             }
             return newPersonID;
         }
-        public static bool UpdatePerson(int PersonID, string NationalNo, string FirstName, string SecondName, string LastName, DateTime DateOfBirth, byte Gender,
-            string Address, string Phone, int NationalityCountryID, string ImagePath = null, string ThirdName = null, string Email = null)
+        public static bool UpdatePerson(int PersonID, string FirstName, string SecondName, string ThirdName, string LastName, string NationalNo, DateTime DateOfBirth, byte Gender,
+            string Address, string Phone, string Email, int NationalityCountryID, string ImagePath)
         {
             int rowsAffected = 0;
 
