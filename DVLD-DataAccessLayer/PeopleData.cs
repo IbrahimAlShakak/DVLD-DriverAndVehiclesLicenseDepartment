@@ -147,6 +147,7 @@ namespace DVLD_DataAccessLayer
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 newPersonID = -1;
             }
             finally
@@ -311,7 +312,7 @@ namespace DVLD_DataAccessLayer
                 "WHEN 0 THEN 'Male' " +
                 "WHEN 1 THEN 'Female'" +
                 " END AS Gender, " +
-                "CONVERT(varchar, p.DateOfBirth, 22) AS [Date Of Birth], " +
+                "CONVERT(varchar, p.DateOfBirth, 23) AS [Date Of Birth], " +
                 "c.CountryName AS Nationality, " +
                 "p.Phone, " +
                 "p.Email " +
@@ -332,7 +333,7 @@ namespace DVLD_DataAccessLayer
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
             finally
             {

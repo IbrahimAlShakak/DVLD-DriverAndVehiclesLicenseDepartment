@@ -25,14 +25,14 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
         {
             InitializeComponent();
 
-            enMode _Mode = enMode.AddNewMode;
+            _Mode = enMode.AddNewMode;
 
 
         }
         public frmAddOrEditPersonInfo(int ID)
         {
             InitializeComponent();
-            enMode _Mode = enMode.EditMode;
+            _Mode = enMode.EditMode;
             _PersonID = ID;
 
 
@@ -40,7 +40,10 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
         private void frmAddOrEditPersonInfo_Load(object sender, EventArgs e)
         {
             _ResetDefaultVlaues();
-            if (_Mode == enMode.EditMode) _LoadData();
+            if (_Mode == enMode.EditMode) 
+            { 
+                _LoadData(); 
+            }
         }
 
         //------------------------- Validations ----------------------------------------------------------------
@@ -188,7 +191,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
             else rbFemale.Checked = true;
             tbPhone.Text = _Person.Phone;
             tbEmail.Text = _Person.Email;
-            cbCountry.SelectedValue = cbCountry.FindString(_Person.CountryInfo.CountryName);
+            cbCountry.SelectedValue = _Person.CountryInfo.CountryID;
             tbAddress.Text = _Person.Address;
 
             if (!string.IsNullOrWhiteSpace(_Person.ImagePath))
@@ -219,6 +222,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
                     if (clsUtil.CopyImageToProjectImagesFolder(ref SourceImageFile))
                     {
                         pbPersonImage.ImageLocation = SourceImageFile;
+                        _Person.ImagePath = SourceImageFile;
                         return true;
                     }
                     else
@@ -251,7 +255,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
             else _Person.Gender = 1;
             _Person.Phone = tbPhone.Text.Trim();
             _Person.Email = tbEmail.Text.Trim();
-            _Person.NationalityCountryID = clsCountry.Find(cbCountry.Text).CountryID;
+            _Person.NationalityCountryID = clsCountry.Find(cbCountry.SelectedIndex).CountryID;
             _Person.Address = tbAddress.Text.Trim();
 
             if (_Person.Save())
@@ -269,5 +273,3 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
 
     }
 }
-
-

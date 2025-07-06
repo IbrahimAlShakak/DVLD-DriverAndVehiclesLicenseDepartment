@@ -81,7 +81,7 @@ namespace DVLD_DataAccessLayer
             bool isFound = false;
 
             SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
-            string query = "SELECT * FROM Countries WHERE CountryID=@CountryID;";
+            string query = "SELECT * FROM Countries WHERE CountryName=@CountryName;";
             SqlCommand Command = new SqlCommand(query, Connection);
 
             Command.Parameters.AddWithValue("@CountryName", CountryName);
@@ -102,6 +102,7 @@ namespace DVLD_DataAccessLayer
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 isFound = false;
             }
             finally
