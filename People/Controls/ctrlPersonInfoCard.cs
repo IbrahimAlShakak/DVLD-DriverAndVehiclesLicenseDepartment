@@ -93,7 +93,6 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
             _LoadPersonImage();
 
         }
-
         private void _LoadPersonImage()
         {
             if (_Person.ImagePath != "")
@@ -106,7 +105,6 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
                     MessageBox.Show("Could not find this image: = " + _Person.ImagePath, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void llEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmAddOrEditPersonInfo frm = new frmAddOrEditPersonInfo(PersonID);

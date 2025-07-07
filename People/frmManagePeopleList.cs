@@ -109,7 +109,6 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
             _LoadFilteredData(_GetFilterData());
             _UpdateCountOfRecords();
         }
-
         private void tsmDelete_Click(object sender, EventArgs e)
         {
 
@@ -140,7 +139,6 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
         {
             this.Close();
         }
-
         private void tsmShowDetails_Click(object sender, EventArgs e)
         {
             int ID = _GetPersonIdOfSelectedRow();
