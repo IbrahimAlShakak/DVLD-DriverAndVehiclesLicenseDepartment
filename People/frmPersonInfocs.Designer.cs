@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctrlPersonCard1 = new DVLD_DriverAndVehiclesLicenseDepartment.People.Controls.ctrlPersonCard();
+            this.ctrlPersonCard1 = new DVLD_DriverAndVehiclesLicenseDepartment.People.Controls.ctrlPersonInfoCard();
             this.btnClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -57,7 +57,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1088, 487);
+            this.ClientSize = new System.Drawing.Size(930, 490);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.ctrlPersonCard1);
             this.Name = "frmPersonInfocs";
@@ -69,7 +69,7 @@
 
         #endregion
 
-        private Controls.ctrlPersonCard ctrlPersonCard1;
+        private Controls.ctrlPersonInfoCard ctrlPersonCard1;
         private System.Windows.Forms.Button btnClose;
     }
 }

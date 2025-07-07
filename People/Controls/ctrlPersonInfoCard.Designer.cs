@@ -1,6 +1,6 @@
 ﻿namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
 {
-    partial class ctrlPersonCard
+    partial class ctrlPersonInfoCard
     {
         /// <summary> 
         /// Required designer variable.
@@ -77,7 +77,7 @@
             this.gbPersonalInfo.Controls.Add(this.label13);
             this.gbPersonalInfo.Location = new System.Drawing.Point(0, 3);
             this.gbPersonalInfo.Name = "gbPersonalInfo";
-            this.gbPersonalInfo.Size = new System.Drawing.Size(1067, 419);
+            this.gbPersonalInfo.Size = new System.Drawing.Size(899, 390);
             this.gbPersonalInfo.TabIndex = 0;
             this.gbPersonalInfo.TabStop = false;
             this.gbPersonalInfo.Text = "Personal Info";
@@ -178,7 +178,7 @@
             // llEditPersonInfo
             // 
             this.llEditPersonInfo.Enabled = false;
-            this.llEditPersonInfo.Location = new System.Drawing.Point(866, 80);
+            this.llEditPersonInfo.Location = new System.Drawing.Point(725, 91);
             this.llEditPersonInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.llEditPersonInfo.Name = "llEditPersonInfo";
             this.llEditPersonInfo.Size = new System.Drawing.Size(104, 31);
@@ -190,10 +190,10 @@
             // pbPersonImage
             // 
             this.pbPersonImage.Image = global::DVLD_DriverAndVehiclesLicenseDepartment.Properties.Resources.NoImageIcon;
-            this.pbPersonImage.Location = new System.Drawing.Point(796, 124);
+            this.pbPersonImage.Location = new System.Drawing.Point(692, 124);
             this.pbPersonImage.Margin = new System.Windows.Forms.Padding(2);
             this.pbPersonImage.Name = "pbPersonImage";
-            this.pbPersonImage.Size = new System.Drawing.Size(243, 244);
+            this.pbPersonImage.Size = new System.Drawing.Size(190, 244);
             this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPersonImage.TabIndex = 55;
             this.pbPersonImage.TabStop = false;
@@ -294,13 +294,13 @@
             this.label13.Text = "Name: ";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // ctrlPersonCard
+            // ctrlPersonInfoCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbPersonalInfo);
-            this.Name = "ctrlPersonCard";
-            this.Size = new System.Drawing.Size(1074, 425);
+            this.Name = "ctrlPersonInfoCard";
+            this.Size = new System.Drawing.Size(902, 394);
             this.gbPersonalInfo.ResumeLayout(false);
             this.gbPersonalInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).EndInit();

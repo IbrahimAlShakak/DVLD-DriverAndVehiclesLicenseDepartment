@@ -48,11 +48,17 @@
   <ItemGroup>
     <Compile Include="Global Classes\clsUtil.cs" />
     <Compile Include="Global Classes\clsValidation.cs" />
-    <Compile Include="People\Controls\ctrlPersonCard.cs">
+    <Compile Include="People\Controls\ctrlPersonInfoCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="People\Controls\ctrlPersonCard.Designer.cs">
-      <DependentUpon>ctrlPersonCard.cs</DependentUpon>
+    <Compile Include="People\Controls\ctrlPersonInfoCard.Designer.cs">
+      <DependentUpon>ctrlPersonInfoCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\Controls\ctrlPersonInfoCardWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="People\Controls\ctrlPersonInfoCardWithFilter.Designer.cs">
+      <DependentUpon>ctrlPersonInfoCardWithFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="People\frmAddOrEditPersonInfo.cs">
       <SubType>Form</SubType>
@@ -80,8 +86,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="People\Controls\ctrlPersonCard.resx">
-      <DependentUpon>ctrlPersonCard.cs</DependentUpon>
+    <EmbeddedResource Include="People\Controls\ctrlPersonInfoCard.resx">
+      <DependentUpon>ctrlPersonInfoCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\Controls\ctrlPersonInfoCardWithFilter.resx">
+      <DependentUpon>ctrlPersonInfoCardWithFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\frmAddOrEditPersonInfo.resx">
       <DependentUpon>frmAddOrEditPersonInfo.cs</DependentUpon>
@@ -181,6 +190,11 @@
   <ItemGroup>
     <None Include="Resources\IDIcon.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

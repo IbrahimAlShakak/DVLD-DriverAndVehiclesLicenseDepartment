@@ -14,7 +14,7 @@ using DVLD_DriverAndVehiclesLicenseDepartment.Properties;
 
 namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
 {
-    public partial class ctrlPersonCard : UserControl
+    public partial class ctrlPersonInfoCard : UserControl
     {
         private clsPerson _Person;
         private int _PersonID = -1;
@@ -33,7 +33,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
             }
         }
 
-        public ctrlPersonCard()
+        public ctrlPersonInfoCard()
         {
             InitializeComponent();
         }
