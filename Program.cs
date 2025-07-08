@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DVLD_DriverAndVehiclesLicenseDepartment.Login;
 using DVLD_DriverAndVehiclesLicenseDepartment.People;
 
 namespace DVLD_DriverAndVehiclesLicenseDepartment
@@ -17,7 +18,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+            Application.Run(new frmLogin());
         }
     }
 }

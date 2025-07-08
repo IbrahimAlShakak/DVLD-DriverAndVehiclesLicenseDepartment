@@ -30,6 +30,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
         }
         private void _LoadFiltersInComboBox()
         {
+            cbFilters.Items.Add("None");
             cbFilters.Items.Add("Person ID");
             cbFilters.Items.Add("National No.");
             cbFilters.Items.Add("First Name");
@@ -222,7 +223,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
         private void tbInputFilter_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Make sure when the PersonId filter is selected, the user allowed to press only numbers.
-            if (cbFilters.SelectedItem?.ToString() == "PersonID")
+            if (cbFilters.SelectedItem?.ToString() == "Person ID")
             {
                 // Allow only digits and control keys (like backspace)
                 if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))

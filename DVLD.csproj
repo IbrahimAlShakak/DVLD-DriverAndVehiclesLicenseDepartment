@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="Global Classes\clsUtil.cs" />
     <Compile Include="Global Classes\clsValidation.cs" />
+    <Compile Include="Login\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="People\Controls\ctrlPersonInfoCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Login\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="People\Controls\ctrlPersonInfoCard.resx">
       <DependentUpon>ctrlPersonInfoCard.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,6 +213,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginScreenImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginScreenImage1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginScreenImage2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UserNameIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PasswordIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

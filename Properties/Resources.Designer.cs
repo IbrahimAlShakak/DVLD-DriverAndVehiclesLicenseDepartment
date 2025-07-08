@@ -163,6 +163,26 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LoginIcon {
+            get {
+                object obj = ResourceManager.GetObject("LoginIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LoginScreenImage {
+            get {
+                object obj = ResourceManager.GetObject("LoginScreenImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap NameIcon {
             get {
                 object obj = ResourceManager.GetObject("NameIcon", resourceCulture);
@@ -186,6 +206,16 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Properties {
         internal static System.Drawing.Bitmap NoImageIcon {
             get {
                 object obj = ResourceManager.GetObject("NoImageIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PasswordIcon {
+            get {
+                object obj = ResourceManager.GetObject("PasswordIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -246,6 +276,16 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Properties {
         internal static System.Drawing.Bitmap SettingsIcon {
             get {
                 object obj = ResourceManager.GetObject("SettingsIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UserNameIcon {
+            get {
+                object obj = ResourceManager.GetObject("UserNameIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
