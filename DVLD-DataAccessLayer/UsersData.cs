@@ -37,46 +37,6 @@ namespace DVLD_DataAccessLayer
 
             return dt;
         }
-
-        public static bool GetUserByUserName(string UserName, ref int UserID, ref int PersonID, ref string Password, ref bool IsActive)
-        {
-            bool isFound = false;
-
-            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
-
-            string query = @"SELECT * FROM USERS WHERE UserNam=@UserName;";
-
-            SqlCommand Command = new SqlCommand(query, Connection);
-            Command.Parameters.AddWithValue("@UserName", UserName);
-
-            try
-            {
-                Connection.Open();
-
-                SqlDataReader reader = Command.ExecuteReader();
-                if (reader.Read())
-                {
-                    isFound = true;
-                    UserID = (int)reader["UserID"];
-                    PersonID = (int)reader["PersonID"];
-                    Password = (string)reader["Password"];
-                    IsActive = (bool)reader["IsActive"];
-                }
-
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                isFound = false;
-            }
-            finally
-            {
-                Connection.Close();
-            }
-
-            return isFound;
-
-        }
         public static bool GetUserByID(int UserID, ref int PersonID, ref string UserName, ref string Password, ref bool IsActive)
         {
             bool isFound = false;
@@ -98,6 +58,45 @@ namespace DVLD_DataAccessLayer
                     isFound = true;
                     PersonID = (int)reader["PersonID"];
                     UserName = (string)reader["UserName"];
+                    Password = (string)reader["Password"];
+                    IsActive = (bool)reader["IsActive"];
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+
+            return isFound;
+
+        }
+        public static bool GetUserByUserName(string UserName, ref int UserID, ref int PersonID, ref string Password, ref bool IsActive)
+        {
+            bool isFound = false;
+
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = @"SELECT * FROM USERS WHERE UserNam=@UserName;";
+
+            SqlCommand Command = new SqlCommand(query, Connection);
+            Command.Parameters.AddWithValue("@UserName", UserName);
+
+            try
+            {
+                Connection.Open();
+
+                SqlDataReader reader = Command.ExecuteReader();
+                if (reader.Read())
+                {
+                    isFound = true;
+                    UserID = (int)reader["UserID"];
+                    PersonID = (int)reader["PersonID"];
                     Password = (string)reader["Password"];
                     IsActive = (bool)reader["IsActive"];
                 }
