@@ -1,6 +1,6 @@
 ﻿namespace DVLD_DriverAndVehiclesLicenseDepartment
 {
-    partial class frmManagePeopleList
+    partial class frmPeopleList
     {
         /// <summary>
         /// Required designer variable.
@@ -68,17 +68,17 @@
             this.label1.Location = new System.Drawing.Point(9, 118);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 16);
+            this.label1.Size = new System.Drawing.Size(88, 25);
             this.label1.TabIndex = 2;
             this.label1.Text = "Filter By:";
             // 
             // cbFilters
             // 
             this.cbFilters.FormattingEnabled = true;
-            this.cbFilters.Location = new System.Drawing.Point(74, 113);
+            this.cbFilters.Location = new System.Drawing.Point(117, 119);
             this.cbFilters.Margin = new System.Windows.Forms.Padding(2);
             this.cbFilters.Name = "cbFilters";
-            this.cbFilters.Size = new System.Drawing.Size(137, 24);
+            this.cbFilters.Size = new System.Drawing.Size(176, 24);
             this.cbFilters.TabIndex = 3;
             this.cbFilters.SelectedIndexChanged += new System.EventHandler(this.cbFilters_SelectedIndexChanged);
             // 
@@ -110,45 +110,45 @@
             this.cmsPeopleList.Name = "cmsPeopleList";
             this.cmsPeopleList.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.cmsPeopleList.ShowImageMargin = false;
-            this.cmsPeopleList.Size = new System.Drawing.Size(186, 140);
+            this.cmsPeopleList.Size = new System.Drawing.Size(163, 112);
             // 
             // tsmShowDetails
             // 
             this.tsmShowDetails.Name = "tsmShowDetails";
-            this.tsmShowDetails.Size = new System.Drawing.Size(185, 24);
+            this.tsmShowDetails.Size = new System.Drawing.Size(162, 24);
             this.tsmShowDetails.Text = "Show Details";
             this.tsmShowDetails.Click += new System.EventHandler(this.tsmShowDetails_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(182, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(159, 6);
             // 
             // tsmAddNewPerson
             // 
             this.tsmAddNewPerson.Name = "tsmAddNewPerson";
-            this.tsmAddNewPerson.Size = new System.Drawing.Size(185, 24);
+            this.tsmAddNewPerson.Size = new System.Drawing.Size(162, 24);
             this.tsmAddNewPerson.Text = "Add New Person";
             this.tsmAddNewPerson.Click += new System.EventHandler(this.tsmAddNewPerson_Click);
             // 
             // tsmEdit
             // 
             this.tsmEdit.Name = "tsmEdit";
-            this.tsmEdit.Size = new System.Drawing.Size(185, 24);
+            this.tsmEdit.Size = new System.Drawing.Size(162, 24);
             this.tsmEdit.Text = "Edit";
             this.tsmEdit.Click += new System.EventHandler(this.tsmEdit_Click);
             // 
             // tsmDelete
             // 
             this.tsmDelete.Name = "tsmDelete";
-            this.tsmDelete.Size = new System.Drawing.Size(185, 24);
+            this.tsmDelete.Size = new System.Drawing.Size(162, 24);
             this.tsmDelete.Text = "Delete";
             this.tsmDelete.Click += new System.EventHandler(this.tsmDelete_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(182, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(159, 6);
             // 
             // label2
             // 
@@ -156,7 +156,7 @@
             this.label2.Location = new System.Drawing.Point(9, 611);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 16);
+            this.label2.Size = new System.Drawing.Size(106, 25);
             this.label2.TabIndex = 5;
             this.label2.Text = "# Records:";
             // 
@@ -166,7 +166,7 @@
             this.lblNumberOfRecords.Location = new System.Drawing.Point(90, 611);
             this.lblNumberOfRecords.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNumberOfRecords.Name = "lblNumberOfRecords";
-            this.lblNumberOfRecords.Size = new System.Drawing.Size(14, 16);
+            this.lblNumberOfRecords.Size = new System.Drawing.Size(23, 25);
             this.lblNumberOfRecords.TabIndex = 6;
             this.lblNumberOfRecords.Text = "0";
             // 
@@ -196,10 +196,10 @@
             // 
             // tbInputFilter
             // 
-            this.tbInputFilter.Location = new System.Drawing.Point(222, 115);
+            this.tbInputFilter.Location = new System.Drawing.Point(306, 114);
             this.tbInputFilter.Margin = new System.Windows.Forms.Padding(2);
             this.tbInputFilter.Name = "tbInputFilter";
-            this.tbInputFilter.Size = new System.Drawing.Size(137, 22);
+            this.tbInputFilter.Size = new System.Drawing.Size(176, 29);
             this.tbInputFilter.TabIndex = 8;
             this.tbInputFilter.Visible = false;
             this.tbInputFilter.TextChanged += new System.EventHandler(this.tbInputFilter_TextChanged);
@@ -219,7 +219,7 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // frmManagePeopleList
+            // frmPeopleList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -236,10 +236,10 @@
             this.Controls.Add(this.lblTitel);
             this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "frmManagePeopleList";
+            this.Name = "frmPeopleList";
             this.ShowIcon = false;
             this.Text = "Manage People";
-            this.Load += new System.EventHandler(this.frmManagePeopleList_Load);
+            this.Load += new System.EventHandler(this.frmPeopleList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeopleList)).EndInit();
             this.cmsPeopleList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

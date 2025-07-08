@@ -301,23 +301,21 @@ namespace DVLD_DataAccessLayer
             DataTable dt = new DataTable();
 
             SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
-            string query = "SELECT  " +
-                "p.PersonID, " +
-                "p.NationalNo, " +
-                "p.FirstName, " +
-                "p.SecondName, " +
-                "p.ThirdName, " +
-                "p.LastName, " +
-                "CASE p.Gender " +
-                "WHEN 0 THEN 'Male' " +
-                "WHEN 1 THEN 'Female'" +
-                " END AS Gender, " +
-                "CONVERT(varchar, p.DateOfBirth, 23) AS [Date Of Birth], " +
-                "c.CountryName AS Nationality, " +
-                "p.Phone, " +
-                "p.Email " +
-                "FROM  People p " +
-                "JOIN  Countries c ON p.NationalityCountryID = c.CountryID";
+            string query = @"
+                                SELECT PersonID, NationalNo,
+                                  FirstName, SecondName, ThirdName, LastName,
+                                  CONVERT(varchar, DateOfBirth, 23) AS [DateOfBirth],
+                                  Gender,  
+                                    CASE
+                                      WHEN Gender = 0 THEN 'Male'
+                                      ELSE 'Female'
+                                    END AS GenderCaption,
+                                  Address, Phone, Email, 
+                                  NationalityCountryID, Countries.CountryName, ImagePath
+                                FROM People
+                                INNER JOIN Countries ON People.NationalityCountryID = Countries.CountryID
+                                ORDER BY People.FirstName
+                            ";
             SqlCommand Command = new SqlCommand(query, Connection);
 
             try

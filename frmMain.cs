@@ -14,7 +14,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
     {
         private void OPenPeopleForm()
         {
-            frmManagePeopleList managePeopleF = new frmManagePeopleList();
+            frmPeopleList managePeopleF = new frmPeopleList();
             managePeopleF.Show();
         }
         public frmMain()

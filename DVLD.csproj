@@ -78,11 +78,11 @@
     <Compile Include="People\frmFindPerson.Designer.cs">
       <DependentUpon>frmFindPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="People\frmManagePeopleList.cs">
+    <Compile Include="People\frmPeopleList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="People\frmManagePeopleList.Designer.cs">
-      <DependentUpon>frmManagePeopleList.cs</DependentUpon>
+    <Compile Include="People\frmPeopleList.Designer.cs">
+      <DependentUpon>frmPeopleList.cs</DependentUpon>
     </Compile>
     <Compile Include="People\frmPersonInfocs.cs">
       <SubType>Form</SubType>
@@ -107,8 +107,8 @@
     <EmbeddedResource Include="People\frmFindPerson.resx">
       <DependentUpon>frmFindPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="People\frmManagePeopleList.resx">
-      <DependentUpon>frmManagePeopleList.cs</DependentUpon>
+    <EmbeddedResource Include="People\frmPeopleList.resx">
+      <DependentUpon>frmPeopleList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\frmPersonInfocs.resx">
       <DependentUpon>frmPersonInfocs.cs</DependentUpon>
