@@ -232,5 +232,8 @@
   <ItemGroup>
     <None Include="Resources\LoginIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Users\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

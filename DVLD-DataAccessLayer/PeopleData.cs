@@ -43,7 +43,6 @@ namespace DVLD_DataAccessLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
                 isFound = false;
             }
             finally
@@ -88,7 +87,6 @@ namespace DVLD_DataAccessLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
                 isFound = false;
             }
             finally
@@ -105,9 +103,9 @@ namespace DVLD_DataAccessLayer
 
             SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
-            string query = "INSERT INTO People (FirstName, SecondName, ThirdName, LastName, Email, Phone, Address, DateOfBirth, NationalityCountryID, ImagePath, NationalNo, Gender) " +
-                            "VALUES (@FirstName, @SecondName, @ThirdName, @LastName, @Email, @Phone, @Address, @DateOfBirth, @NationalityCountryID, @ImagePath, @NationalNo, @Gender); " +
-                            "SELECT SCOPE_IDENTITY();";
+            string query = @"INSERT INTO People (FirstName, SecondName, ThirdName, LastName, Email, Phone, Address, DateOfBirth, NationalityCountryID, ImagePath, NationalNo, Gender) 
+                            VALUES (@FirstName, @SecondName, @ThirdName, @LastName, @Email, @Phone, @Address, @DateOfBirth, @NationalityCountryID, @ImagePath, @NationalNo, @Gender); 
+                            SELECT SCOPE_IDENTITY();";
             SqlCommand Command = new SqlCommand(query, Connection);
 
             Command.Parameters.AddWithValue("@FirstName", FirstName);
@@ -147,7 +145,6 @@ namespace DVLD_DataAccessLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
                 newPersonID = -1;
             }
             finally
@@ -162,9 +159,9 @@ namespace DVLD_DataAccessLayer
             int rowsAffected = 0;
 
             SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
-            string query = "UPDATE People SET NationalNo=@NationalNo, FirstName=@FirstName, SecondName=@SecondName, ThirdName=@ThirdName, LastName=@LastName, Email=@Email," +
-                           " Phone=@Phone, Address=@Address, DateOfBirth=@DateOfBirth, NationalityCountryID=@NationalityCountryID, ImagePath=@ImagePath, Gender=@Gender " +
-                           "WHERE PersonID=@PersonID";
+            string query = @"UPDATE People SET NationalNo=@NationalNo, FirstName=@FirstName, SecondName=@SecondName, ThirdName=@ThirdName, LastName=@LastName, Email=@Email,
+                            Phone=@Phone, Address=@Address, DateOfBirth=@DateOfBirth, NationalityCountryID=@NationalityCountryID, ImagePath=@ImagePath, Gender=@Gender 
+                           WHERE PersonID=@PersonID";
             SqlCommand Command = new SqlCommand(query, Connection);
 
             Command.Parameters.AddWithValue("@PersonID", PersonID);
@@ -201,7 +198,6 @@ namespace DVLD_DataAccessLayer
             catch (Exception ex)
 
             {
-                Console.WriteLine(ex.Message);
                 rowsAffected = 0;
             }
             finally
@@ -255,6 +251,8 @@ namespace DVLD_DataAccessLayer
                 SqlDataReader reader = Command.ExecuteReader();
 
                 isFound = reader.HasRows;
+
+                reader.Close();
             }
             catch (Exception ex)
             {
@@ -284,6 +282,8 @@ namespace DVLD_DataAccessLayer
                 SqlDataReader reader = Command.ExecuteReader();
 
                 isFound = reader.HasRows;
+
+                reader.Close();
             }
             catch (Exception ex)
             {
@@ -327,11 +327,11 @@ namespace DVLD_DataAccessLayer
                 {
                     dt.Load(reader);
                 }
+                reader.Close();
 
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
             }
             finally
             {
