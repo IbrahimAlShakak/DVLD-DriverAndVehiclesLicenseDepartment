@@ -82,7 +82,7 @@ namespace DVLD_DataAccessLayer
 
             SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
-            string query = @"SELECT * FROM USERS WHERE UserNam=@UserName;";
+            string query = @"SELECT * FROM USERS WHERE UserName=@UserName;";
 
             SqlCommand Command = new SqlCommand(query, Connection);
             Command.Parameters.AddWithValue("@UserName", UserName);

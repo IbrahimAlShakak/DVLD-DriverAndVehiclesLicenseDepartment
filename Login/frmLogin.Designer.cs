@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
-            this.cbRememberMe = new System.Windows.Forms.CheckBox();
+            this.chkRememberMe = new System.Windows.Forms.CheckBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.tbUserName = new System.Windows.Forms.TextBox();
             this.lbTitel = new System.Windows.Forms.Label();
@@ -37,18 +38,20 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // cbRememberMe
+            // chkRememberMe
             // 
-            this.cbRememberMe.AutoSize = true;
-            this.cbRememberMe.Location = new System.Drawing.Point(854, 378);
-            this.cbRememberMe.Name = "cbRememberMe";
-            this.cbRememberMe.Size = new System.Drawing.Size(162, 29);
-            this.cbRememberMe.TabIndex = 19;
-            this.cbRememberMe.Text = "Remember Me";
-            this.cbRememberMe.UseVisualStyleBackColor = true;
+            this.chkRememberMe.AutoSize = true;
+            this.chkRememberMe.Location = new System.Drawing.Point(854, 378);
+            this.chkRememberMe.Name = "chkRememberMe";
+            this.chkRememberMe.Size = new System.Drawing.Size(119, 20);
+            this.chkRememberMe.TabIndex = 19;
+            this.chkRememberMe.Text = "Remember Me";
+            this.chkRememberMe.UseVisualStyleBackColor = true;
             // 
             // tbPassword
             // 
@@ -58,6 +61,7 @@
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(193, 34);
             this.tbPassword.TabIndex = 18;
+            this.tbPassword.Validating += new System.ComponentModel.CancelEventHandler(this.Input_Validating);
             // 
             // tbUserName
             // 
@@ -66,6 +70,7 @@
             this.tbUserName.Name = "tbUserName";
             this.tbUserName.Size = new System.Drawing.Size(193, 34);
             this.tbUserName.TabIndex = 17;
+            this.tbUserName.Validating += new System.ComponentModel.CancelEventHandler(this.Input_Validating);
             // 
             // lbTitel
             // 
@@ -74,7 +79,7 @@
             this.lbTitel.ForeColor = System.Drawing.Color.Navy;
             this.lbTitel.Location = new System.Drawing.Point(647, 34);
             this.lbTitel.Name = "lbTitel";
-            this.lbTitel.Size = new System.Drawing.Size(453, 39);
+            this.lbTitel.Size = new System.Drawing.Size(435, 38);
             this.lbTitel.TabIndex = 14;
             this.lbTitel.Text = "Enter Your Login Credentials";
             // 
@@ -102,6 +107,7 @@
             this.btnLogin.Text = "Login";
             this.btnLogin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // label2
             // 
@@ -125,6 +131,10 @@
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -133,7 +143,7 @@
             this.ClientSize = new System.Drawing.Size(1178, 656);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.cbRememberMe);
+            this.Controls.Add(this.chkRememberMe);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUserName);
             this.Controls.Add(this.label2);
@@ -144,7 +154,9 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Login Screen";
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,11 +166,12 @@
 
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.CheckBox cbRememberMe;
+        private System.Windows.Forms.CheckBox chkRememberMe;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.TextBox tbUserName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbTitel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
