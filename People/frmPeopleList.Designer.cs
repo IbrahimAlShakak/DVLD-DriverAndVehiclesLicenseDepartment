@@ -55,18 +55,16 @@
             // 
             this.lblTitel.AutoSize = true;
             this.lblTitel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitel.Location = new System.Drawing.Point(555, 86);
-            this.lblTitel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTitel.Location = new System.Drawing.Point(763, 129);
             this.lblTitel.Name = "lblTitel";
-            this.lblTitel.Size = new System.Drawing.Size(184, 29);
+            this.lblTitel.Size = new System.Drawing.Size(244, 38);
             this.lblTitel.TabIndex = 1;
             this.lblTitel.Text = "Manage People";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 118);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(12, 177);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 25);
             this.label1.TabIndex = 2;
@@ -75,10 +73,9 @@
             // cbFilters
             // 
             this.cbFilters.FormattingEnabled = true;
-            this.cbFilters.Location = new System.Drawing.Point(117, 119);
-            this.cbFilters.Margin = new System.Windows.Forms.Padding(2);
+            this.cbFilters.Location = new System.Drawing.Point(161, 165);
             this.cbFilters.Name = "cbFilters";
-            this.cbFilters.Size = new System.Drawing.Size(176, 24);
+            this.cbFilters.Size = new System.Drawing.Size(240, 32);
             this.cbFilters.TabIndex = 3;
             this.cbFilters.SelectedIndexChanged += new System.EventHandler(this.cbFilters_SelectedIndexChanged);
             // 
@@ -89,12 +86,11 @@
             this.dgvPeopleList.BackgroundColor = System.Drawing.Color.White;
             this.dgvPeopleList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPeopleList.ContextMenuStrip = this.cmsPeopleList;
-            this.dgvPeopleList.Location = new System.Drawing.Point(12, 148);
-            this.dgvPeopleList.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvPeopleList.Location = new System.Drawing.Point(16, 222);
             this.dgvPeopleList.Name = "dgvPeopleList";
             this.dgvPeopleList.RowHeadersWidth = 51;
             this.dgvPeopleList.RowTemplate.Height = 31;
-            this.dgvPeopleList.Size = new System.Drawing.Size(1240, 461);
+            this.dgvPeopleList.Size = new System.Drawing.Size(1705, 692);
             this.dgvPeopleList.TabIndex = 4;
             // 
             // cmsPeopleList
@@ -110,51 +106,50 @@
             this.cmsPeopleList.Name = "cmsPeopleList";
             this.cmsPeopleList.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.cmsPeopleList.ShowImageMargin = false;
-            this.cmsPeopleList.Size = new System.Drawing.Size(163, 112);
+            this.cmsPeopleList.Size = new System.Drawing.Size(216, 160);
             // 
             // tsmShowDetails
             // 
             this.tsmShowDetails.Name = "tsmShowDetails";
-            this.tsmShowDetails.Size = new System.Drawing.Size(162, 24);
+            this.tsmShowDetails.Size = new System.Drawing.Size(215, 36);
             this.tsmShowDetails.Text = "Show Details";
             this.tsmShowDetails.Click += new System.EventHandler(this.tsmShowDetails_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(159, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(212, 6);
             // 
             // tsmAddNewPerson
             // 
             this.tsmAddNewPerson.Name = "tsmAddNewPerson";
-            this.tsmAddNewPerson.Size = new System.Drawing.Size(162, 24);
+            this.tsmAddNewPerson.Size = new System.Drawing.Size(215, 36);
             this.tsmAddNewPerson.Text = "Add New Person";
             this.tsmAddNewPerson.Click += new System.EventHandler(this.tsmAddNewPerson_Click);
             // 
             // tsmEdit
             // 
             this.tsmEdit.Name = "tsmEdit";
-            this.tsmEdit.Size = new System.Drawing.Size(162, 24);
+            this.tsmEdit.Size = new System.Drawing.Size(215, 36);
             this.tsmEdit.Text = "Edit";
             this.tsmEdit.Click += new System.EventHandler(this.tsmEdit_Click);
             // 
             // tsmDelete
             // 
             this.tsmDelete.Name = "tsmDelete";
-            this.tsmDelete.Size = new System.Drawing.Size(162, 24);
+            this.tsmDelete.Size = new System.Drawing.Size(215, 36);
             this.tsmDelete.Text = "Delete";
             this.tsmDelete.Click += new System.EventHandler(this.tsmDelete_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(159, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(212, 6);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 611);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(12, 916);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 25);
             this.label2.TabIndex = 5;
@@ -163,8 +158,7 @@
             // lblNumberOfRecords
             // 
             this.lblNumberOfRecords.AutoSize = true;
-            this.lblNumberOfRecords.Location = new System.Drawing.Point(90, 611);
-            this.lblNumberOfRecords.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblNumberOfRecords.Location = new System.Drawing.Point(124, 916);
             this.lblNumberOfRecords.Name = "lblNumberOfRecords";
             this.lblNumberOfRecords.Size = new System.Drawing.Size(23, 25);
             this.lblNumberOfRecords.TabIndex = 6;
@@ -175,10 +169,9 @@
             this.btnAddNewPerson.BackColor = System.Drawing.Color.Transparent;
             this.btnAddNewPerson.BackgroundImage = global::DVLD_DriverAndVehiclesLicenseDepartment.Properties.Resources.AddNewPersonIcon;
             this.btnAddNewPerson.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAddNewPerson.Location = new System.Drawing.Point(1139, 87);
-            this.btnAddNewPerson.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAddNewPerson.Location = new System.Drawing.Point(1566, 130);
             this.btnAddNewPerson.Name = "btnAddNewPerson";
-            this.btnAddNewPerson.Size = new System.Drawing.Size(113, 47);
+            this.btnAddNewPerson.Size = new System.Drawing.Size(155, 70);
             this.btnAddNewPerson.TabIndex = 7;
             this.btnAddNewPerson.UseVisualStyleBackColor = false;
             this.btnAddNewPerson.Click += new System.EventHandler(this.btnAddNewPerson_Click);
@@ -186,20 +179,18 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::DVLD_DriverAndVehiclesLicenseDepartment.Properties.Resources.PeopleIcon;
-            this.pictureBox1.Location = new System.Drawing.Point(526, 8);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Location = new System.Drawing.Point(723, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(199, 76);
+            this.pictureBox1.Size = new System.Drawing.Size(274, 114);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // tbInputFilter
             // 
-            this.tbInputFilter.Location = new System.Drawing.Point(306, 114);
-            this.tbInputFilter.Margin = new System.Windows.Forms.Padding(2);
+            this.tbInputFilter.Location = new System.Drawing.Point(421, 168);
             this.tbInputFilter.Name = "tbInputFilter";
-            this.tbInputFilter.Size = new System.Drawing.Size(176, 29);
+            this.tbInputFilter.Size = new System.Drawing.Size(240, 29);
             this.tbInputFilter.TabIndex = 8;
             this.tbInputFilter.Visible = false;
             this.tbInputFilter.TextChanged += new System.EventHandler(this.tbInputFilter_TextChanged);
@@ -209,10 +200,9 @@
             // 
             this.btnClose.Image = global::DVLD_DriverAndVehiclesLicenseDepartment.Properties.Resources.CloseIcon;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(1139, 619);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClose.Location = new System.Drawing.Point(1566, 928);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(113, 35);
+            this.btnClose.Size = new System.Drawing.Size(155, 52);
             this.btnClose.TabIndex = 10;
             this.btnClose.Text = "Close";
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -221,10 +211,11 @@
             // 
             // frmPeopleList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1284, 667);
+            this.ClientSize = new System.Drawing.Size(1766, 1000);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.tbInputFilter);
             this.Controls.Add(this.btnAddNewPerson);
@@ -235,7 +226,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblTitel);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmPeopleList";
             this.ShowIcon = false;
             this.Text = "Manage People";

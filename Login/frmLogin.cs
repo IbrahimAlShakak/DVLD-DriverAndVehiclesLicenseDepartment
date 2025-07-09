@@ -47,7 +47,6 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Login
             }
                
         }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if(!ValidateChildren())
@@ -66,6 +65,11 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Login
                 return;
             }
 
+            if(!loginUser.IsActive)
+            {
+                MessageBox.Show("Your account is deactivated please check with your Admin!", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             clsGlobal.LoggedInUser = loginUser;
 
             if(chkRememberMe.Checked)
@@ -81,6 +85,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Login
             frmMain frm = new frmMain();
             this.Visible = false;
             frm.ShowDialog();
+            this.Visible = true;
         }
 
         

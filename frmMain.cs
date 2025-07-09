@@ -7,16 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DVLD_DriverAndVehiclesLicenseDepartment.Global_Classes;
+using DVLD_DriverAndVehiclesLicenseDepartment.Login;
+using DVLD_DriverAndVehiclesLicenseDepartment.Users;
 
 namespace DVLD_DriverAndVehiclesLicenseDepartment
 {
     public partial class frmMain : Form
     {
-        private void OPenPeopleForm()
-        {
-            frmPeopleList managePeopleF = new frmPeopleList();
-            managePeopleF.Show();
-        }
         public frmMain()
         {
             InitializeComponent();
@@ -24,7 +22,20 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
 
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OPenPeopleForm();
+            frmPeopleList managePeopleF = new frmPeopleList();
+            managePeopleF.Show();
+        }
+
+        private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsGlobal.LoggedInUser = null;
+            this.Close();
+        }
+
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUsersList frm = new frmUsersList();
+            frm.Show();
         }
     }
 }

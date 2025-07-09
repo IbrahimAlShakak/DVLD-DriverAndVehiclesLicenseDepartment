@@ -11,7 +11,22 @@ namespace DVLD_DataAccessLayer
         {
             DataTable dt = new DataTable();
             SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
-            string query = @"SELECT * FROM USERS;";
+            string query = @"SELECT 
+                                    Users.UserID, 
+                                    Users.PersonID, 
+                                    People.FirstName + ' ' + 
+                                    People.SecondName + ' ' + 
+                                    ISNULL(People.ThirdName, '') + 
+                                    CASE 
+                                        WHEN People.ThirdName IS NOT NULL THEN ' ' 
+                                        ELSE '' 
+                                    END +
+                                    People.LastName AS FullName, 
+                                    Users.UserName, 
+                                    Users.IsActive
+                                FROM 
+                                    Users 
+                                INNER JOIN People ON Users.PersonID = People.PersonID;";
             SqlCommand Command = new SqlCommand(query, Connection);
             try
             {
