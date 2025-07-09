@@ -59,9 +59,9 @@
             // 
             this.btnAddNewPerson.BackgroundImage = global::DVLD_DriverAndVehiclesLicenseDepartment.Properties.Resources.plus;
             this.btnAddNewPerson.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAddNewPerson.Location = new System.Drawing.Point(740, 15);
+            this.btnAddNewPerson.Location = new System.Drawing.Point(770, 20);
             this.btnAddNewPerson.Name = "btnAddNewPerson";
-            this.btnAddNewPerson.Size = new System.Drawing.Size(52, 43);
+            this.btnAddNewPerson.Size = new System.Drawing.Size(76, 32);
             this.btnAddNewPerson.TabIndex = 42;
             this.btnAddNewPerson.UseVisualStyleBackColor = true;
             this.btnAddNewPerson.Click += new System.EventHandler(this.btnAddNewPerson_Click);
@@ -70,9 +70,9 @@
             // 
             this.btnSearch.BackgroundImage = global::DVLD_DriverAndVehiclesLicenseDepartment.Properties.Resources.search;
             this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnSearch.Location = new System.Drawing.Point(682, 15);
+            this.btnSearch.Location = new System.Drawing.Point(688, 20);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(52, 43);
+            this.btnSearch.Size = new System.Drawing.Size(76, 32);
             this.btnSearch.TabIndex = 41;
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);

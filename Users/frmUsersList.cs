@@ -91,7 +91,6 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Users
                 tbInputFilter.Focus();
             }
         }
-
         private void tbInputFilter_TextChanged(object sender, EventArgs e)
         {
             string FilterColumn = "";
@@ -161,6 +160,13 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Users
             }
 
             lblNumberOfRecords.Text = _dataAllUsers.Rows.Count.ToString();
+        }
+
+        private void btnAddNewPerson_Click(object sender, EventArgs e)
+        {
+            frmAddOrEditUserInfo frm = new frmAddOrEditUserInfo();
+            frm.ShowDialog();
+
         }
     }
 }

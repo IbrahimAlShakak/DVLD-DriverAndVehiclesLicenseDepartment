@@ -226,5 +226,37 @@ namespace DVLD_DataAccessLayer
 
             return (rowsAffected > 0);
         }
+        public static bool PersonHasUserAccount(int PersonID)
+        {
+            bool isFound = true;
+
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = @"SELECT X=1 FROM Users WHERE PersonID=@PersonID";
+
+            SqlCommand Command = new SqlCommand(query, Connection);
+            Command.Parameters.AddWithValue("@PersonID", PersonID);
+            try
+            {
+                Connection.Open();
+
+                SqlDataReader reader = Command.ExecuteReader();
+
+                isFound = reader.HasRows;
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Connection.Close();
+            }
+
+            return isFound;
+        }
     }
 }

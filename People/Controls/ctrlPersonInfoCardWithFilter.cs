@@ -53,16 +53,13 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
         {
             get { return ctrlPersonInfoCard1.SelectedPersonInfo; }
         }
-
-
         private void _LoadFiltersInComboBox()
         {
             cbFilters.Items.Add("Person ID");
             cbFilters.Items.Add("National Number");
             cbFilters.SelectedIndex = 0;
         }
-
-        private void _SearchForPerson()
+        private void _FindPerson()
         {
             switch(cbFilters.Text)
             {
@@ -79,6 +76,8 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
                 default:
                     break;
             }
+
+            if (FilterEnabled)  PersonFound(ctrlPersonInfoCard1.PersonID);
         }
         public ctrlPersonInfoCardWithFilter()
         {
@@ -97,7 +96,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
                 return;
             }
 
-            _SearchForPerson();
+            _FindPerson();
 
 
         }
@@ -152,7 +151,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
                     return;
                 }
 
-                _SearchForPerson();
+                _FindPerson();
 
                 e.SuppressKeyPress = true;
             }
