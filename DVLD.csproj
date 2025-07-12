@@ -91,11 +91,11 @@
     <Compile Include="People\frmPeopleList.Designer.cs">
       <DependentUpon>frmPeopleList.cs</DependentUpon>
     </Compile>
-    <Compile Include="People\frmPersonInfocs.cs">
+    <Compile Include="People\frmPersonInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="People\frmPersonInfocs.Designer.cs">
-      <DependentUpon>frmPersonInfocs.cs</DependentUpon>
+    <Compile Include="People\frmPersonInfo.Designer.cs">
+      <DependentUpon>frmPersonInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -110,6 +110,12 @@
     </Compile>
     <Compile Include="Users\frmAddOrEditUserInfo.Designer.cs">
       <DependentUpon>frmAddOrEditUserInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\frmUserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmUserInfo.Designer.cs">
+      <DependentUpon>frmUserInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Users\frmUsersList.cs">
       <SubType>Form</SubType>
@@ -138,8 +144,8 @@
     <EmbeddedResource Include="People\frmPeopleList.resx">
       <DependentUpon>frmPeopleList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="People\frmPersonInfocs.resx">
-      <DependentUpon>frmPersonInfocs.cs</DependentUpon>
+    <EmbeddedResource Include="People\frmPersonInfo.resx">
+      <DependentUpon>frmPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -151,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Users\frmAddOrEditUserInfo.resx">
       <DependentUpon>frmAddOrEditUserInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\frmUserInfo.resx">
+      <DependentUpon>frmUserInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\frmUsersList.resx">
       <DependentUpon>frmUsersList.cs</DependentUpon>

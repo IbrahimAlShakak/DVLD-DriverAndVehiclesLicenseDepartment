@@ -205,7 +205,6 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Users
             frm.ShowDialog();
             _Refresh();
         }
-
         private void deleteUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int UserId = _GetUserIdOfSelectedRow();
@@ -223,6 +222,12 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Users
                 
             }
             
+        }
+        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int UserID = _GetUserIdOfSelectedRow();
+            frmUserInfo frm = new frmUserInfo(UserID);
+            frm.ShowDialog();
         }
     }
 }

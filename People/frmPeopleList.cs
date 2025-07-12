@@ -178,7 +178,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
         private void tsmShowDetails_Click(object sender, EventArgs e)
         {
             int ID = _GetPersonIdOfSelectedRow();
-            frmPersonInfocs frm = new frmPersonInfocs(ID);
+            frmPersonInfo frm = new frmPersonInfo(ID);
             frm.ShowDialog();
         }
         private void tsmEdit_Click(object sender, EventArgs e)

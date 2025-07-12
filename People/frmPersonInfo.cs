@@ -11,14 +11,14 @@ using DVLD_DriverAndVehiclesLicenseDepartment.People.Controls;
 
 namespace DVLD_DriverAndVehiclesLicenseDepartment.People
 {
-    public partial class frmPersonInfocs : Form
+    public partial class frmPersonInfo : Form
     {
-        public frmPersonInfocs(int PersonID)
+        public frmPersonInfo(int PersonID)
         {
             InitializeComponent();
             ctrlPersonCard1.LoadPersonInfo(PersonID);
         }
-        public frmPersonInfocs(string NationalNo)
+        public frmPersonInfo(string NationalNo)
         {
             InitializeComponent();
             ctrlPersonCard1.LoadPersonInfo(NationalNo);

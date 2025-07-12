@@ -1,6 +1,6 @@
 ﻿namespace DVLD_DriverAndVehiclesLicenseDepartment.People
 {
-    partial class frmPersonInfocs
+    partial class frmPersonInfo
     {
         /// <summary>
         /// Required designer variable.
