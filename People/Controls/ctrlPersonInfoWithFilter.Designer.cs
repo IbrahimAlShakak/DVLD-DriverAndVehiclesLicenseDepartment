@@ -1,6 +1,6 @@
 ﻿namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
 {
-    partial class ctrlPersonInfoCardWithFilter
+    partial class ctrlPersonInfoWithFilter
     {
         /// <summary> 
         /// Required designer variable.
@@ -35,7 +35,7 @@
             this.tbSearchInput = new System.Windows.Forms.TextBox();
             this.cbFilters = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.ctrlPersonInfoCard1 = new DVLD_DriverAndVehiclesLicenseDepartment.People.Controls.ctrlPersonInfoCard();
+            this.ctrlPersonInfoCard1 = new DVLD_DriverAndVehiclesLicenseDepartment.People.Controls.ctrlPersonInfo();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -136,7 +136,7 @@
 
         #endregion
 
-        private ctrlPersonInfoCard ctrlPersonInfoCard1;
+        private ctrlPersonInfo ctrlPersonInfoCard1;
         private System.Windows.Forms.GroupBox gbFilter;
         private System.Windows.Forms.ComboBox cbFilters;
         private System.Windows.Forms.Label label13;

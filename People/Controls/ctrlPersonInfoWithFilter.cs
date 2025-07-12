@@ -12,7 +12,7 @@ using DVLD_BusinessLayer;
 
 namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
 {
-    public partial class ctrlPersonInfoCardWithFilter : UserControl
+    public partial class ctrlPersonInfoWithFilter : UserControl
     {
         public event Action<int> OnPersonFound;
         protected virtual void PersonFound(int PersonId)
@@ -86,7 +86,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
             _FindPerson();
 
         }
-        public ctrlPersonInfoCardWithFilter()
+        public ctrlPersonInfoWithFilter()
         {
             InitializeComponent();
         }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctrlPersonCard1 = new DVLD_DriverAndVehiclesLicenseDepartment.People.Controls.ctrlPersonInfoCard();
+            this.ctrlPersonCard1 = new DVLD_DriverAndVehiclesLicenseDepartment.People.Controls.ctrlPersonInfo();
             this.btnClose = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -84,7 +84,7 @@
 
         #endregion
 
-        private Controls.ctrlPersonInfoCard ctrlPersonCard1;
+        private Controls.ctrlPersonInfo ctrlPersonCard1;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label1;
     }

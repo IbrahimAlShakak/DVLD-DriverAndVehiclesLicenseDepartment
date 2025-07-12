@@ -55,17 +55,17 @@
     <Compile Include="Login\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="People\Controls\ctrlPersonInfoCard.cs">
+    <Compile Include="People\Controls\ctrlPersonInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="People\Controls\ctrlPersonInfoCard.Designer.cs">
-      <DependentUpon>ctrlPersonInfoCard.cs</DependentUpon>
+    <Compile Include="People\Controls\ctrlPersonInfo.Designer.cs">
+      <DependentUpon>ctrlPersonInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="People\Controls\ctrlPersonInfoCardWithFilter.cs">
+    <Compile Include="People\Controls\ctrlPersonInfoWithFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="People\Controls\ctrlPersonInfoCardWithFilter.Designer.cs">
-      <DependentUpon>ctrlPersonInfoCardWithFilter.cs</DependentUpon>
+    <Compile Include="People\Controls\ctrlPersonInfoWithFilter.Designer.cs">
+      <DependentUpon>ctrlPersonInfoWithFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="People\frmAddOrEditPersonInfo.cs">
       <SubType>Form</SubType>
@@ -99,6 +99,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Users\Controls\ctrlUserInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Users\Controls\ctrlUserInfo.Designer.cs">
+      <DependentUpon>ctrlUserInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users\frmAddOrEditUserInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,11 +120,11 @@
     <EmbeddedResource Include="Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="People\Controls\ctrlPersonInfoCard.resx">
-      <DependentUpon>ctrlPersonInfoCard.cs</DependentUpon>
+    <EmbeddedResource Include="People\Controls\ctrlPersonInfo.resx">
+      <DependentUpon>ctrlPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="People\Controls\ctrlPersonInfoCardWithFilter.resx">
-      <DependentUpon>ctrlPersonInfoCardWithFilter.cs</DependentUpon>
+    <EmbeddedResource Include="People\Controls\ctrlPersonInfoWithFilter.resx">
+      <DependentUpon>ctrlPersonInfoWithFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\frmAddOrEditPersonInfo.resx">
       <DependentUpon>frmAddOrEditPersonInfo.cs</DependentUpon>
@@ -139,6 +145,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\Controls\ctrlUserInfo.resx">
+      <DependentUpon>ctrlUserInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\frmAddOrEditUserInfo.resx">
       <DependentUpon>frmAddOrEditUserInfo.cs</DependentUpon>

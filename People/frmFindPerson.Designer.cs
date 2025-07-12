@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctrlPersonInfoCardWithFilter1 = new DVLD_DriverAndVehiclesLicenseDepartment.People.Controls.ctrlPersonInfoCardWithFilter();
+            this.ctrlPersonInfoCardWithFilter1 = new DVLD_DriverAndVehiclesLicenseDepartment.People.Controls.ctrlPersonInfoWithFilter();
             this.lblTitel = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -82,7 +82,7 @@
 
         #endregion
 
-        private Controls.ctrlPersonInfoCardWithFilter ctrlPersonInfoCardWithFilter1;
+        private Controls.ctrlPersonInfoWithFilter ctrlPersonInfoCardWithFilter1;
         private System.Windows.Forms.Label lblTitel;
         private System.Windows.Forms.Button btnClose;
     }

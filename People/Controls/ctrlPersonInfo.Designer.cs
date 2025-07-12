@@ -1,6 +1,6 @@
 ﻿namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
 {
-    partial class ctrlPersonInfoCard
+    partial class ctrlPersonInfo
     {
         /// <summary> 
         /// Required designer variable.
