@@ -79,6 +79,13 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
 
             if (FilterEnabled)  PersonFound(ctrlPersonInfoCard1.PersonID);
         }
+        public void LoadPersonInfo (int PersonID)
+        {
+            cbFilters.SelectedIndex = 0;
+            tbSearchInput.Text = PersonID.ToString();
+            _FindPerson();
+
+        }
         public ctrlPersonInfoCardWithFilter()
         {
             InitializeComponent();
@@ -116,7 +123,6 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
         {
             tbSearchInput.Text = "";
         }
-
         private void tbSearchInput_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrEmpty(tbSearchInput.Text.Trim()))

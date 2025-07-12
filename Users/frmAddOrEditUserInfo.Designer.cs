@@ -155,6 +155,7 @@
             this.txtConfirmPassword.PasswordChar = '*';
             this.txtConfirmPassword.Size = new System.Drawing.Size(162, 27);
             this.txtConfirmPassword.TabIndex = 7;
+            this.txtConfirmPassword.TextChanged += new System.EventHandler(this.ConfirmPassword_Validating);
             this.txtConfirmPassword.Validating += new System.ComponentModel.CancelEventHandler(this.ConfirmPassword_Validating);
             // 
             // txtPassword
@@ -164,6 +165,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(162, 27);
             this.txtPassword.TabIndex = 6;
+            this.txtPassword.TextChanged += new System.EventHandler(this.ConfirmPassword_Validating);
             this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_Validating);
             // 
             // txtUserName
@@ -238,6 +240,7 @@
             this.btnSave.Text = "Save";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
             // 
@@ -250,6 +253,7 @@
             this.btnClose.Text = "Close";
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // errorProvider1
             // 
@@ -269,6 +273,7 @@
             this.Name = "frmAddOrEditUserInfo";
             this.ShowIcon = false;
             this.Text = "Add Or Edit User";
+            this.Load += new System.EventHandler(this.frmAddOrEditUserInfo_Load);
             this.tabControl1.ResumeLayout(false);
             this.tpPersonalInfo.ResumeLayout(false);
             this.tpLoginInfo.ResumeLayout(false);

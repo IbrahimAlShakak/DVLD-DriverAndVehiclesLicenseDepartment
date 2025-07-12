@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -29,6 +31,9 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Users
             cbFilters.Items.Add("Full Name");
             cbFilters.Items.Add("UserName");
             cbFilters.Items.Add("Is Active");
+            cbIsActiveOrNot.Items.Add("All");
+            cbIsActiveOrNot.Items.Add("Yes");
+            cbIsActiveOrNot.Items.Add("No");
 
         }
         private int _GetUserIdOfSelectedRow()
@@ -66,7 +71,6 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Users
                 dgvUsersList.Columns[4].Width = 120;
             }
         }
-
         private void tbInputFilter_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (cbFilters.SelectedItem?.ToString() == "Person ID" || cbFilters.SelectedItem?.ToString() == "User ID")
@@ -84,7 +88,22 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Users
         }
         private void cbFilters_SelectedIndexChanged(object sender, EventArgs e)
         {
-            tbInputFilter.Visible = (cbFilters.SelectedItem?.ToString() != "None");
+            if (cbFilters.SelectedItem?.ToString() == "None")
+            {
+                cbIsActiveOrNot.Visible = false;
+                tbInputFilter.Visible = false;
+            }
+            else if (cbFilters.SelectedItem?.ToString() == "Is Active")
+            {
+                cbIsActiveOrNot.Visible = true;
+                tbInputFilter.Visible = false;
+                cbIsActiveOrNot.SelectedIndex = 0;
+            }
+            else
+            {
+                cbIsActiveOrNot.Visible = false;
+                tbInputFilter.Visible = true;
+            }
             if (tbInputFilter.Visible)
             {
                 tbInputFilter.Text = "";
@@ -138,35 +157,72 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Users
             }
 
             if (FilterColumn == "UserID" || FilterColumn == "PersonID")
-            { 
-                _dataAllUsers.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, tbInputFilter.Text.Trim()); 
-            }
-            else if (FilterColumn == "IsActive")
             {
-                string input = tbInputFilter.Text.Trim().ToLower();
+                _dataAllUsers.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, tbInputFilter.Text.Trim());
+            }
+            else
+            {
+                _dataAllUsers.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, tbInputFilter.Text.Trim());
+            }
 
-                if (input == "true" || input == "yes" || input == "1" || input == "active")
+            lblNumberOfRecords.Text = _dataAllUsers.Rows.Count.ToString();
+        }
+        private void cbIsActiveOrNot_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string FilterColumn = cbFilters.Text == "Is Active" ? "IsActive" : "";
+
+            if (FilterColumn == "IsActive")
+            {
+                string input = cbIsActiveOrNot.SelectedItem.ToString();
+
+                if (input == "Yes")
                     _dataAllUsers.DefaultView.RowFilter = "[IsActive] = true";
 
-                else if (input == "false" || input == "no" || input == "0" || input == "inactive")
+                else if (input == "No")
                     _dataAllUsers.DefaultView.RowFilter = "[IsActive] = false";
 
                 else
                     _dataAllUsers.DefaultView.RowFilter = "";
             }
-            else
-            { 
-                _dataAllUsers.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, tbInputFilter.Text.Trim()); 
-            }
-
-            lblNumberOfRecords.Text = _dataAllUsers.Rows.Count.ToString();
         }
-
         private void btnAddNewPerson_Click(object sender, EventArgs e)
         {
             frmAddOrEditUserInfo frm = new frmAddOrEditUserInfo();
             frm.ShowDialog();
+            _Refresh();
 
+        }
+        private void addNewUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddOrEditUserInfo frm = new frmAddOrEditUserInfo();
+            frm.ShowDialog();
+            _Refresh();
+        }
+        private void editUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int UserId = _GetUserIdOfSelectedRow();
+            frmAddOrEditUserInfo frm = new frmAddOrEditUserInfo(UserId);
+            frm.ShowDialog();
+            _Refresh();
+        }
+
+        private void deleteUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int UserId = _GetUserIdOfSelectedRow();
+            if(MessageBox.Show($"Are you you want to delete User with ID = {UserId}?", "Delete Request", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+            {
+                if (clsUser.DeleteUser(UserId))
+                {
+                    MessageBox.Show($"User with ID = {UserId} has been deleted!", "Delete Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _Refresh();
+                }
+                else
+                {
+                    MessageBox.Show($"User Account is not deleted!", "Delete Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
+            }
+            
         }
     }
 }

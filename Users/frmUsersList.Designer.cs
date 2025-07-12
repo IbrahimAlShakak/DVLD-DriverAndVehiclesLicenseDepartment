@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tbInputFilter = new System.Windows.Forms.TextBox();
             this.lblNumberOfRecords = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,14 +39,24 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAddNewPerson = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cbIsActiveOrNot = new System.Windows.Forms.ComboBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.addNewUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editUserInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeUsersPasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsersList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbInputFilter
             // 
             this.tbInputFilter.Location = new System.Drawing.Point(305, 110);
-            this.tbInputFilter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbInputFilter.Margin = new System.Windows.Forms.Padding(2);
             this.tbInputFilter.Name = "tbInputFilter";
             this.tbInputFilter.Size = new System.Drawing.Size(176, 22);
             this.tbInputFilter.TabIndex = 19;
@@ -79,8 +90,9 @@
             this.dgvUsersList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvUsersList.BackgroundColor = System.Drawing.Color.White;
             this.dgvUsersList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsersList.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvUsersList.Location = new System.Drawing.Point(11, 136);
-            this.dgvUsersList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvUsersList.Margin = new System.Windows.Forms.Padding(2);
             this.dgvUsersList.Name = "dgvUsersList";
             this.dgvUsersList.RowHeadersWidth = 51;
             this.dgvUsersList.RowTemplate.Height = 31;
@@ -91,7 +103,7 @@
             // 
             this.cbFilters.FormattingEnabled = true;
             this.cbFilters.Location = new System.Drawing.Point(116, 108);
-            this.cbFilters.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbFilters.Margin = new System.Windows.Forms.Padding(2);
             this.cbFilters.Name = "cbFilters";
             this.cbFilters.Size = new System.Drawing.Size(176, 24);
             this.cbFilters.TabIndex = 14;
@@ -123,7 +135,7 @@
             this.btnClose.Image = global::DVLD_DriverAndVehiclesLicenseDepartment.Properties.Resources.CloseIcon;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClose.Location = new System.Drawing.Point(1138, 617);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(113, 35);
             this.btnClose.TabIndex = 20;
@@ -138,7 +150,7 @@
             this.btnAddNewPerson.BackgroundImage = global::DVLD_DriverAndVehiclesLicenseDepartment.Properties.Resources.addUserIcon;
             this.btnAddNewPerson.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnAddNewPerson.Location = new System.Drawing.Point(1138, 85);
-            this.btnAddNewPerson.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddNewPerson.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddNewPerson.Name = "btnAddNewPerson";
             this.btnAddNewPerson.Size = new System.Drawing.Size(113, 47);
             this.btnAddNewPerson.TabIndex = 18;
@@ -149,18 +161,86 @@
             // 
             this.pictureBox1.Image = global::DVLD_DriverAndVehiclesLicenseDepartment.Properties.Resources.UsersListIcon;
             this.pictureBox1.Location = new System.Drawing.Point(525, 6);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(199, 76);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
+            // cbIsActiveOrNot
+            // 
+            this.cbIsActiveOrNot.FormattingEnabled = true;
+            this.cbIsActiveOrNot.Location = new System.Drawing.Point(305, 108);
+            this.cbIsActiveOrNot.Name = "cbIsActiveOrNot";
+            this.cbIsActiveOrNot.Size = new System.Drawing.Size(176, 24);
+            this.cbIsActiveOrNot.TabIndex = 21;
+            this.cbIsActiveOrNot.Visible = false;
+            this.cbIsActiveOrNot.SelectedIndexChanged += new System.EventHandler(this.cbIsActiveOrNot_SelectedIndexChanged);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showDetailsToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.addNewUserToolStripMenuItem,
+            this.editUserInfoToolStripMenuItem,
+            this.deleteUserToolStripMenuItem,
+            this.changeUsersPasswordToolStripMenuItem,
+            this.toolStripSeparator2});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(236, 164);
+            // 
+            // showDetailsToolStripMenuItem
+            // 
+            this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
+            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(235, 24);
+            this.showDetailsToolStripMenuItem.Text = "Show Details";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(232, 6);
+            // 
+            // addNewUserToolStripMenuItem
+            // 
+            this.addNewUserToolStripMenuItem.Name = "addNewUserToolStripMenuItem";
+            this.addNewUserToolStripMenuItem.Size = new System.Drawing.Size(235, 24);
+            this.addNewUserToolStripMenuItem.Text = "Add New User";
+            this.addNewUserToolStripMenuItem.Click += new System.EventHandler(this.addNewUserToolStripMenuItem_Click);
+            // 
+            // editUserInfoToolStripMenuItem
+            // 
+            this.editUserInfoToolStripMenuItem.Name = "editUserInfoToolStripMenuItem";
+            this.editUserInfoToolStripMenuItem.Size = new System.Drawing.Size(235, 24);
+            this.editUserInfoToolStripMenuItem.Text = "Edit User Info";
+            this.editUserInfoToolStripMenuItem.Click += new System.EventHandler(this.editUserInfoToolStripMenuItem_Click);
+            // 
+            // deleteUserToolStripMenuItem
+            // 
+            this.deleteUserToolStripMenuItem.Name = "deleteUserToolStripMenuItem";
+            this.deleteUserToolStripMenuItem.Size = new System.Drawing.Size(235, 24);
+            this.deleteUserToolStripMenuItem.Text = "Delete User";
+            this.deleteUserToolStripMenuItem.Click += new System.EventHandler(this.deleteUserToolStripMenuItem_Click);
+            // 
+            // changeUsersPasswordToolStripMenuItem
+            // 
+            this.changeUsersPasswordToolStripMenuItem.Name = "changeUsersPasswordToolStripMenuItem";
+            this.changeUsersPasswordToolStripMenuItem.Size = new System.Drawing.Size(235, 24);
+            this.changeUsersPasswordToolStripMenuItem.Text = "Change User\'s Password";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(232, 6);
+            // 
             // frmUsersList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1266, 662);
+            this.Controls.Add(this.cbIsActiveOrNot);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.tbInputFilter);
             this.Controls.Add(this.btnAddNewPerson);
@@ -177,6 +257,7 @@
             this.Load += new System.EventHandler(this.frmUsersList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsersList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,5 +275,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTitel;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox cbIsActiveOrNot;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem showDetailsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem addNewUserToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editUserInfoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteUserToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changeUsersPasswordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
