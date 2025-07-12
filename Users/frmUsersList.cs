@@ -229,5 +229,12 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Users
             frmUserInfo frm = new frmUserInfo(UserID);
             frm.ShowDialog();
         }
+        private void changeUsersPasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int UserID = _GetUserIdOfSelectedRow();
+            frmUserChangePassword frm = new frmUserChangePassword(UserID);
+            frm.ShowDialog();
+            _Refresh();
+        }
     }
 }

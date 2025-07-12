@@ -19,23 +19,32 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
         {
             InitializeComponent();
         }
-
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmPeopleList managePeopleF = new frmPeopleList();
-            managePeopleF.Show();
+            managePeopleF.ShowDialog();
         }
-
         private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             clsGlobal.LoggedInUser = null;
             this.Close();
         }
-
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmUsersList frm = new frmUsersList();
-            frm.Show();
+            frm.ShowDialog();
+        }
+        private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int UserID = clsGlobal.LoggedInUser.UserID;
+            frmUserInfo frm = new frmUserInfo(UserID);
+            frm.ShowDialog();
+        }
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int UserID = clsGlobal.LoggedInUser.UserID;
+            frmUserChangePassword frm = new frmUserChangePassword(UserID);
+            frm.ShowDialog();
         }
     }
 }
