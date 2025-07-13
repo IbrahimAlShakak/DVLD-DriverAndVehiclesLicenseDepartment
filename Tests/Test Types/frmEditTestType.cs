@@ -10,28 +10,30 @@ using System.Windows.Forms;
 using DVLD_BusinessLayer;
 using DVLD_DriverAndVehiclesLicenseDepartment.Global_Classes;
 
-namespace DVLD_DriverAndVehiclesLicenseDepartment.Application_Types
+namespace DVLD_DriverAndVehiclesLicenseDepartment.Tests.Test_Types
 {
-    public partial class frmEditApplicationType : Form
+    public partial class frmEditTestType : Form
     {
-        private int _ApplicationTypeID;
-        private clsApplicationType _ApplicationType;
-        public frmEditApplicationType(int ApplicationTypeID)
+        private int _TestTypeID;
+        private clsTestType _TestType;
+        public frmEditTestType(int TestTypeID)
         {
             InitializeComponent();
-            _ApplicationTypeID = ApplicationTypeID;
+            _TestTypeID = TestTypeID;
         }
-        private void frmEditApplicationType_Load(object sender, EventArgs e)
+        private void frmEditTestType_Load(object sender, EventArgs e)
         {
-            _ApplicationType = clsApplicationType.FindApplicationType(_ApplicationTypeID);
-            if(_ApplicationType != null)
+            _TestType = clsTestType.FindTestType(_TestTypeID);
+            if (_TestType != null)
             {
-                lblID.Text = _ApplicationType.ApplicationTypeID.ToString();
-                txtTitle.Text = _ApplicationType.ApplicationTypeTitle;
-                txtFees.Text = _ApplicationType.ApplicationFees.ToString();
-            } else
+                lblID.Text = _TestType.TestTypeID.ToString();
+                txtTitle.Text = _TestType.TestTypeTitle;
+                txtDescription.Text = _TestType.TestTypeDescription;
+                txtFees.Text = _TestType.TestFees.ToString();
+            }
+            else
             {
-                MessageBox.Show($"No Application Type Found With This ID {_ApplicationTypeID}", "Failed To Get Applicaiton Type Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"No Test Type Found With This ID {_TestTypeID}", "Failed To Get Test Type Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
         }
@@ -39,14 +41,13 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Application_Types
         {
             if (!this.ValidateChildren())
             {
-                //Here we dont continue becuase the form is not valid
                 MessageBox.Show("Some fileds are not valide!, put the mouse over the red icon(s) to see the erro", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-
             }
-            _ApplicationType.ApplicationTypeTitle = txtTitle.Text.ToString();
-            _ApplicationType.ApplicationFees = Convert.ToSingle(txtFees.Text.ToString());
-            if (_ApplicationType.Save()) MessageBox.Show("Application Type Info was updated.", "Update Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            _TestType.TestTypeTitle = txtTitle.Text.ToString();
+            _TestType.TestTypeDescription = txtDescription.Text.ToString();
+            _TestType.TestFees = Convert.ToSingle(txtFees.Text.ToString());
+            if (_TestType.Save()) MessageBox.Show("Test Type Info was updated.", "Update Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else MessageBox.Show($"Update Faild, Contact Admin", "Failed To Update Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
@@ -64,6 +65,18 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Application_Types
             else
             {
                 errorProvider1.SetError(txtTitle, null);
+            }
+        }
+        private void txtDescription_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtDescription.Text.Trim()))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtDescription, "Description cannot be empty!");
+            }
+            else
+            {
+                errorProvider1.SetError(txtDescription, null);
             }
         }
         private void txtFees_Validating(object sender, CancelEventArgs e)

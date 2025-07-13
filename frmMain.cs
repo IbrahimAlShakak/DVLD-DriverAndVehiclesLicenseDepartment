@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DVLD_DriverAndVehiclesLicenseDepartment.Application_Types;
 using DVLD_DriverAndVehiclesLicenseDepartment.Global_Classes;
 using DVLD_DriverAndVehiclesLicenseDepartment.Login;
+using DVLD_DriverAndVehiclesLicenseDepartment.Tests.Test_Types;
 using DVLD_DriverAndVehiclesLicenseDepartment.Users;
 
 namespace DVLD_DriverAndVehiclesLicenseDepartment
@@ -51,6 +52,12 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
         private void manageApplicationsTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmManageApplicationTypes frm = new frmManageApplicationTypes();
+            frm.ShowDialog();
+        }
+
+        private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageTestTypes frm = new frmManageTestTypes();
             frm.ShowDialog();
         }
     }
