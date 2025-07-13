@@ -14,9 +14,9 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Tests.Test_Types
 {
     public partial class frmEditTestType : Form
     {
-        private int _TestTypeID;
+        private clsTestType.enTestType _TestTypeID;
         private clsTestType _TestType;
-        public frmEditTestType(int TestTypeID)
+        public frmEditTestType(clsTestType.enTestType TestTypeID)
         {
             InitializeComponent();
             _TestTypeID = TestTypeID;
@@ -26,10 +26,10 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Tests.Test_Types
             _TestType = clsTestType.FindTestType(_TestTypeID);
             if (_TestType != null)
             {
-                lblID.Text = _TestType.TestTypeID.ToString();
-                txtTitle.Text = _TestType.TestTypeTitle;
-                txtDescription.Text = _TestType.TestTypeDescription;
-                txtFees.Text = _TestType.TestFees.ToString();
+                lblID.Text = ((int)_TestType.ID).ToString();
+                txtTitle.Text = _TestType.Title;
+                txtDescription.Text = _TestType.Description;
+                txtFees.Text = _TestType.Fees.ToString();
             }
             else
             {
@@ -44,9 +44,9 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Tests.Test_Types
                 MessageBox.Show("Some fileds are not valide!, put the mouse over the red icon(s) to see the erro", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            _TestType.TestTypeTitle = txtTitle.Text.ToString();
-            _TestType.TestTypeDescription = txtDescription.Text.ToString();
-            _TestType.TestFees = Convert.ToSingle(txtFees.Text.ToString());
+            _TestType.Title = txtTitle.Text.ToString();
+            _TestType.Description = txtDescription.Text.ToString();
+            _TestType.Fees = Convert.ToSingle(txtFees.Text.ToString());
             if (_TestType.Save()) MessageBox.Show("Test Type Info was updated.", "Update Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else MessageBox.Show($"Update Faild, Contact Admin", "Failed To Update Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
 

@@ -15,7 +15,6 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Tests.Test_Types
     public partial class frmManageTestTypes : Form
     {
         private DataTable _dataAllTestTypes = clsTestType.GetAllTestTypes();
-        private clsTestType _TestType;
         private void _Refresh()
         {
             _dataAllTestTypes = clsTestType.GetAllTestTypes();
@@ -50,7 +49,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Tests.Test_Types
         private void editTestTypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int ID = _GetTestTypeIdOfSelectedRow();
-            frmEditTestType frm = new frmEditTestType(ID);
+            frmEditTestType frm = new frmEditTestType((clsTestType.enTestType)ID);
             frm.ShowDialog();
             _Refresh();
         }
