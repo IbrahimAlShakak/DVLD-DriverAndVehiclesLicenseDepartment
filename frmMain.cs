@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DVLD_DriverAndVehiclesLicenseDepartment.Application_Types;
 using DVLD_DriverAndVehiclesLicenseDepartment.Global_Classes;
 using DVLD_DriverAndVehiclesLicenseDepartment.Login;
 using DVLD_DriverAndVehiclesLicenseDepartment.Users;
@@ -44,6 +45,12 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
         {
             int UserID = clsGlobal.LoggedInUser.UserID;
             frmUserChangePassword frm = new frmUserChangePassword(UserID);
+            frm.ShowDialog();
+        }
+
+        private void manageApplicationsTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageApplicationTypes frm = new frmManageApplicationTypes();
             frm.ShowDialog();
         }
     }

@@ -77,12 +77,10 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Users
             ctrlUserInfocs1.LoadUserInfo(_UserID);
             _User = ctrlUserInfocs1.SelectedUserInfo;
         }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             if(ValidateChildren())
