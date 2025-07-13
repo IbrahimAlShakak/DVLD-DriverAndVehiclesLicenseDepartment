@@ -44,7 +44,6 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Application_Types
         {
             this.Close();
         }
-
         private void editApplicationTypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int ID = _GetApplicationTypeIdOfSelectedRow();
