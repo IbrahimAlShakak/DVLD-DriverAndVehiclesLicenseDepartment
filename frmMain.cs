@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLD_DriverAndVehiclesLicenseDepartment.Application_Types;
+using DVLD_DriverAndVehiclesLicenseDepartment.Applications;
+using DVLD_DriverAndVehiclesLicenseDepartment.Applications.Local_Driving_License;
 using DVLD_DriverAndVehiclesLicenseDepartment.Global_Classes;
 using DVLD_DriverAndVehiclesLicenseDepartment.Login;
 using DVLD_DriverAndVehiclesLicenseDepartment.Tests.Test_Types;
@@ -58,6 +60,18 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
         private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmManageTestTypes frm = new frmManageTestTypes();
+            frm.ShowDialog();
+        }
+
+        private void localLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddOrUpdateLocalDrivingLicense frm = new frmAddOrUpdateLocalDrivingLicense();
+            frm.ShowDialog();
+        }
+
+        private void localDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLocalDrivingLicenseApplicationsList frm = new frmLocalDrivingLicenseApplicationsList();
             frm.ShowDialog();
         }
     }

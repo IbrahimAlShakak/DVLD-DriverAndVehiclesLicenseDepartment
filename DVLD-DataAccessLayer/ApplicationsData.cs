@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DVLD_DataAccessLayer
 {
@@ -35,7 +36,7 @@ namespace DVLD_DataAccessLayer
                     ApplicationTypeID = (int)reader["ApplicationTypeID"];
                     ApplicationStatus = (byte)reader["ApplicationStatus"];
                     LastStatusDate = (DateTime)reader["LastStatusDate"];
-                    PaidFees = (float)reader["PaidFees"];
+                    PaidFees = Convert.ToSingle(reader["PaidFees"]);
                     CreatedByUserID = (int)reader["CreatedByUserID"];
                 }
 
@@ -43,6 +44,7 @@ namespace DVLD_DataAccessLayer
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 isFound = false;
             }
             finally
@@ -103,7 +105,7 @@ namespace DVLD_DataAccessLayer
             string query = @"UPDATE Applications SET ApplicantPersonID=@ApplicantPersonID,
                                 ApplicationDate=@ApplicationDate, ApplicationTypeID=@ApplicationTypeID,
                                 ApplicationStatus=@ApplicationStatus, LastStatusDate=@LastStatusDate,
-                                PaidFees=@PaidFees, CreatedByUserID=@CreatedByUserID,
+                                PaidFees=@PaidFees, CreatedByUserID=@CreatedByUserID
                                 WHERE ApplicationID=@ApplicationID";
 
             SqlCommand Command = new SqlCommand(query, Connection);
@@ -168,13 +170,12 @@ namespace DVLD_DataAccessLayer
 
             SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
 
-            string query = @"UPDATE Applications SET   ApplicationStatus=@ApplicationStatus  WHERE ApplicationID=@ApplicationID";
+            string query = @"UPDATE Applications SET   ApplicationStatus=@ApplicationStatus, LastStatusDate=@LastStatusDate  WHERE ApplicationID=@ApplicationID";
 
             SqlCommand Command = new SqlCommand(query, Connection);
             Command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
             Command.Parameters.AddWithValue("@ApplicationStatus", ApplicationStatus);
-
-
+            Command.Parameters.AddWithValue("@LastStatusDate", DateTime.Now);
 
             try
             {
@@ -193,6 +194,44 @@ namespace DVLD_DataAccessLayer
 
             return (rowsAffected > 0);
         }
-        
+
+        public static int GetActiveApplicationIDForLicenseClass(int PersonID, int ApplicationTypeID, int LicenseClassID)
+        {
+            int FoundID = -1;
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = @"SELECT Applications.ApplicationID FROM Applications
+                             INNER JOIN LocalDrivingLicenseApplications ON Applications.ApplicationID=LocalDrivingLicenseApplications.ApplicationID
+                             WHERE 
+                                    Applications.ApplicantPersonID=@PersonID and
+                                    Applications.ApplicationTypeID=@ApplicationTypeID and
+                                    LocalDrivingLicenseApplications.LicenseClassID=@LicenseClassID and
+                                    Applications.ApplicationStatus=1;";
+
+            SqlCommand Command = new SqlCommand(query, Connection);
+            Command.Parameters.AddWithValue("@PersonID", PersonID);
+            Command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
+            Command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+
+            try
+            {
+                Connection.Open();
+                object result = Command.ExecuteScalar();
+
+                if(result != null && int.TryParse(result.ToString(), out int IdFromQuery))
+                    FoundID = IdFromQuery;
+
+            }
+            catch (Exception ex)
+            {
+                FoundID = -1;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+
+            return FoundID;
+        }
     }
 }

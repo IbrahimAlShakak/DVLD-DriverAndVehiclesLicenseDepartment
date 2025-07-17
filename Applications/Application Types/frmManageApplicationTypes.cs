@@ -14,7 +14,6 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Application_Types
     public partial class frmManageApplicationTypes : Form
     {
         private DataTable _dataAllApplicationTypes = clsApplicationType.GetAllApplicationTypes();
-        private clsApplicationType _ApplicationType;
         private void _Refresh()
         {
             _dataAllApplicationTypes = clsApplicationType.GetAllApplicationTypes();

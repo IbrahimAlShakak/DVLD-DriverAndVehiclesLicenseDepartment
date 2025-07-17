@@ -58,11 +58,17 @@
     <Compile Include="Applications\Application Types\frmManageApplicationTypes.Designer.cs">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\frmNewLocalDrivingLicense.cs">
+    <Compile Include="Applications\Local Driving License\frmAddOrUpdateLocalDrivingLicense.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\frmNewLocalDrivingLicense.Designer.cs">
-      <DependentUpon>frmNewLocalDrivingLicense.cs</DependentUpon>
+    <Compile Include="Applications\Local Driving License\frmAddOrUpdateLocalDrivingLicense.Designer.cs">
+      <DependentUpon>frmAddOrUpdateLocalDrivingLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\frmLocalDrivingLicenseApplicationsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\frmLocalDrivingLicenseApplicationsList.Designer.cs">
+      <DependentUpon>frmLocalDrivingLicenseApplicationsList.cs</DependentUpon>
     </Compile>
     <Compile Include="Global Classes\clsGlobal.cs" />
     <Compile Include="Global Classes\clsUtil.cs" />
@@ -165,8 +171,11 @@
     <EmbeddedResource Include="Applications\Application Types\frmManageApplicationTypes.resx">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\frmNewLocalDrivingLicense.resx">
-      <DependentUpon>frmNewLocalDrivingLicense.cs</DependentUpon>
+    <EmbeddedResource Include="Applications\Local Driving License\frmAddOrUpdateLocalDrivingLicense.resx">
+      <DependentUpon>frmAddOrUpdateLocalDrivingLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Local Driving License\frmLocalDrivingLicenseApplicationsList.resx">
+      <DependentUpon>frmLocalDrivingLicenseApplicationsList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -349,6 +358,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ManageApplicationTypeIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LocalApplicationsIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addApplicationIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

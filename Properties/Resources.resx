@@ -166,6 +166,9 @@
   <data name="UsersIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UsersIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="LocalApplicationsIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LocalApplicationsIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="IDImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IDImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -174,6 +177,9 @@
   </data>
   <data name="NameIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NameIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TestTypeIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TestTypeIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PasswordIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PasswordIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -211,7 +217,7 @@
   <data name="BirthDateIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BirthDateIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="TestTypeIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TestTypeIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="addApplicationIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\addApplicationIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

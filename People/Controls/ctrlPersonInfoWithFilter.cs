@@ -132,7 +132,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
             }
             else
             {
-                //e.Cancel = false;
+                e.Cancel = false;
                 errorProvider1.SetError(tbSearchInput, null);
             }
         }
