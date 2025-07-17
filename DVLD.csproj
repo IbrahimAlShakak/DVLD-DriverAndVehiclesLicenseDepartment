@@ -365,5 +365,8 @@
   <ItemGroup>
     <None Include="Resources\addApplicationIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tests\Controls\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
