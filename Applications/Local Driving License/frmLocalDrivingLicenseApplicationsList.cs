@@ -139,5 +139,51 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Applications.Local_Driving_Lic
             clsLocalDrivingLicenseApplication LDLApplication = clsLocalDrivingLicenseApplication.FindLocalLicenseApplication(ID);
             if(LDLApplication.SetCacelled())  _Refresh();
         }
+
+        private void dgvLocalLicenseApplicationsList_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                var hit = dgvLocalLicenseApplicationsList.HitTest(e.X, e.Y);
+                if (hit.RowIndex >= 0)
+                {
+                    dgvLocalLicenseApplicationsList.ClearSelection();
+                    dgvLocalLicenseApplicationsList.Rows[hit.RowIndex].Selected = true;
+                    int TestPassed = Convert.ToInt32(dgvLocalLicenseApplicationsList.CurrentRow.Cells["PassedTestCount"].Value);
+                    string Status = dgvLocalLicenseApplicationsList.CurrentRow.Cells["Status"].Value.ToString(); ;
+                    if(Status != "New")
+                    {
+                        cmsScheduleTest.Enabled = false;
+                    }
+                    else
+                    {
+                        cmsScheduleTest.Enabled = true;
+                        switch (TestPassed)
+                        {
+                            case 0:
+                                cmsScheduleVisionTest.Enabled = true;
+                                cmsScheduleTheoryTest.Enabled = false;
+                                cmsSchedulePracticalTest.Enabled = false;
+                                break;
+                            case 1:
+                                cmsScheduleVisionTest.Enabled = false;
+                                cmsScheduleTheoryTest.Enabled = true;
+                                cmsSchedulePracticalTest.Enabled = false;
+                                break;
+                            case 2:
+                                cmsScheduleVisionTest.Enabled = false;
+                                cmsScheduleTheoryTest.Enabled = false;
+                                cmsSchedulePracticalTest.Enabled = true;
+                                break;
+                            default:
+                                cmsScheduleVisionTest.Enabled = false;
+                                cmsScheduleTheoryTest.Enabled = false;
+                                cmsSchedulePracticalTest.Enabled = false;
+                                break;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
