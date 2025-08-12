@@ -323,6 +323,16 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PracticalTestIcon {
+            get {
+                object obj = ResourceManager.GetObject("PracticalTestIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SaveIcon {
             get {
                 object obj = ResourceManager.GetObject("SaveIcon", resourceCulture);
@@ -396,6 +406,26 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Properties {
         internal static System.Drawing.Bitmap UsersListIcon {
             get {
                 object obj = ResourceManager.GetObject("UsersListIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap VisionIcon {
+            get {
+                object obj = ResourceManager.GetObject("VisionIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WriitenTestIcon {
+            get {
+                object obj = ResourceManager.GetObject("WriitenTestIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

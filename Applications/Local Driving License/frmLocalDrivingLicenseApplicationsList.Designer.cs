@@ -41,9 +41,14 @@
             this.cmsCancelApplication = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.cmsScheduleTest = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsScheduleVisionTest = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsScheduleTheoryTest = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsSchedulePracticalTest = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.cmsIssueDrivingLicneseForTheFirstTime = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmsShowLicense = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.showPersonLicenseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblTitel = new System.Windows.Forms.Label();
             this.btnAddNewLocalDrivingLicenseApplication = new System.Windows.Forms.Button();
@@ -52,11 +57,6 @@
             this.tbInputFilter = new System.Windows.Forms.TextBox();
             this.cbFilters = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmsShowLicense = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.cmsScheduleVisionTest = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmsScheduleTheoryTest = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmsSchedulePracticalTest = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocalLicenseApplicationsList)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -89,7 +89,7 @@
             this.dgvLocalLicenseApplicationsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLocalLicenseApplicationsList.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvLocalLicenseApplicationsList.Location = new System.Drawing.Point(9, 241);
-            this.dgvLocalLicenseApplicationsList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvLocalLicenseApplicationsList.Margin = new System.Windows.Forms.Padding(2);
             this.dgvLocalLicenseApplicationsList.Name = "dgvLocalLicenseApplicationsList";
             this.dgvLocalLicenseApplicationsList.RowHeadersWidth = 51;
             this.dgvLocalLicenseApplicationsList.RowTemplate.Height = 31;
@@ -170,6 +170,27 @@
             this.cmsScheduleTest.Size = new System.Drawing.Size(264, 24);
             this.cmsScheduleTest.Text = "Schedule Test ";
             // 
+            // cmsScheduleVisionTest
+            // 
+            this.cmsScheduleVisionTest.Name = "cmsScheduleVisionTest";
+            this.cmsScheduleVisionTest.Size = new System.Drawing.Size(242, 26);
+            this.cmsScheduleVisionTest.Text = "Schedule Vision Test";
+            this.cmsScheduleVisionTest.Click += new System.EventHandler(this.cmsScheduleVisionTest_Click);
+            // 
+            // cmsScheduleTheoryTest
+            // 
+            this.cmsScheduleTheoryTest.Name = "cmsScheduleTheoryTest";
+            this.cmsScheduleTheoryTest.Size = new System.Drawing.Size(242, 26);
+            this.cmsScheduleTheoryTest.Text = "Schedule Theory Test";
+            this.cmsScheduleTheoryTest.Click += new System.EventHandler(this.cmsScheduleTheoryTest_Click);
+            // 
+            // cmsSchedulePracticalTest
+            // 
+            this.cmsSchedulePracticalTest.Name = "cmsSchedulePracticalTest";
+            this.cmsSchedulePracticalTest.Size = new System.Drawing.Size(242, 26);
+            this.cmsSchedulePracticalTest.Text = "Schedule Practical Test";
+            this.cmsSchedulePracticalTest.Click += new System.EventHandler(this.cmsSchedulePracticalTest_Click);
+            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
@@ -186,6 +207,18 @@
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(261, 6);
+            // 
+            // cmsShowLicense
+            // 
+            this.cmsShowLicense.Enabled = false;
+            this.cmsShowLicense.Name = "cmsShowLicense";
+            this.cmsShowLicense.Size = new System.Drawing.Size(264, 24);
+            this.cmsShowLicense.Text = "Show License";
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(261, 6);
             // 
             // showPersonLicenseHistoryToolStripMenuItem
             // 
@@ -210,7 +243,7 @@
             this.btnAddNewLocalDrivingLicenseApplication.BackgroundImage = global::DVLD_DriverAndVehiclesLicenseDepartment.Properties.Resources.addApplicationIcon;
             this.btnAddNewLocalDrivingLicenseApplication.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnAddNewLocalDrivingLicenseApplication.Location = new System.Drawing.Point(1210, 188);
-            this.btnAddNewLocalDrivingLicenseApplication.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddNewLocalDrivingLicenseApplication.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddNewLocalDrivingLicenseApplication.Name = "btnAddNewLocalDrivingLicenseApplication";
             this.btnAddNewLocalDrivingLicenseApplication.Size = new System.Drawing.Size(131, 47);
             this.btnAddNewLocalDrivingLicenseApplication.TabIndex = 23;
@@ -223,7 +256,7 @@
             this.btnClose.Image = global::DVLD_DriverAndVehiclesLicenseDepartment.Properties.Resources.CloseIcon;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClose.Location = new System.Drawing.Point(1210, 587);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(131, 47);
             this.btnClose.TabIndex = 21;
@@ -236,7 +269,7 @@
             // 
             this.pictureBox1.Image = global::DVLD_DriverAndVehiclesLicenseDepartment.Properties.Resources.LocalApplicationsIcon;
             this.pictureBox1.Location = new System.Drawing.Point(537, 8);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(340, 136);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -246,7 +279,7 @@
             // tbInputFilter
             // 
             this.tbInputFilter.Location = new System.Drawing.Point(303, 216);
-            this.tbInputFilter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbInputFilter.Margin = new System.Windows.Forms.Padding(2);
             this.tbInputFilter.Name = "tbInputFilter";
             this.tbInputFilter.Size = new System.Drawing.Size(176, 22);
             this.tbInputFilter.TabIndex = 26;
@@ -258,7 +291,7 @@
             // 
             this.cbFilters.FormattingEnabled = true;
             this.cbFilters.Location = new System.Drawing.Point(113, 214);
-            this.cbFilters.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbFilters.Margin = new System.Windows.Forms.Padding(2);
             this.cbFilters.Name = "cbFilters";
             this.cbFilters.Size = new System.Drawing.Size(176, 24);
             this.cbFilters.TabIndex = 25;
@@ -273,36 +306,6 @@
             this.label1.Size = new System.Drawing.Size(58, 16);
             this.label1.TabIndex = 24;
             this.label1.Text = "Filter By:";
-            // 
-            // cmsShowLicense
-            // 
-            this.cmsShowLicense.Enabled = false;
-            this.cmsShowLicense.Name = "cmsShowLicense";
-            this.cmsShowLicense.Size = new System.Drawing.Size(264, 24);
-            this.cmsShowLicense.Text = "Show License";
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(261, 6);
-            // 
-            // cmsScheduleVisionTest
-            // 
-            this.cmsScheduleVisionTest.Name = "cmsScheduleVisionTest";
-            this.cmsScheduleVisionTest.Size = new System.Drawing.Size(242, 26);
-            this.cmsScheduleVisionTest.Text = "Schedule Vision Test";
-            // 
-            // cmsScheduleTheoryTest
-            // 
-            this.cmsScheduleTheoryTest.Name = "cmsScheduleTheoryTest";
-            this.cmsScheduleTheoryTest.Size = new System.Drawing.Size(242, 26);
-            this.cmsScheduleTheoryTest.Text = "Schedule Theory Test";
-            // 
-            // cmsSchedulePracticalTest
-            // 
-            this.cmsSchedulePracticalTest.Name = "cmsSchedulePracticalTest";
-            this.cmsSchedulePracticalTest.Size = new System.Drawing.Size(242, 26);
-            this.cmsSchedulePracticalTest.Text = "Schedule Practical Test";
             // 
             // frmLocalDrivingLicenseApplicationsList
             // 
@@ -319,7 +322,7 @@
             this.Controls.Add(this.dgvLocalLicenseApplicationsList);
             this.Controls.Add(this.lblTitel);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmLocalDrivingLicenseApplicationsList";
             this.ShowIcon = false;
             this.Text = "Local Driving License Applications List";

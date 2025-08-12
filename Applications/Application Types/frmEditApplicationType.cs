@@ -26,9 +26,9 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Application_Types
             _ApplicationType = clsApplicationType.FindApplicationType(_ApplicationTypeID);
             if(_ApplicationType != null)
             {
-                lblID.Text = _ApplicationType.ApplicationTypeID.ToString();
-                txtTitle.Text = _ApplicationType.ApplicationTypeTitle;
-                txtFees.Text = _ApplicationType.ApplicationFees.ToString();
+                lblID.Text = _ApplicationType.ID.ToString();
+                txtTitle.Text = _ApplicationType.Title;
+                txtFees.Text = _ApplicationType.Fees.ToString();
             } else
             {
                 MessageBox.Show($"No Application Type Found With This ID {_ApplicationTypeID}", "Failed To Get Applicaiton Type Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -44,8 +44,8 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Application_Types
                 return;
 
             }
-            _ApplicationType.ApplicationTypeTitle = txtTitle.Text.ToString();
-            _ApplicationType.ApplicationFees = Convert.ToSingle(txtFees.Text.ToString());
+            _ApplicationType.Title = txtTitle.Text.ToString();
+            _ApplicationType.Fees = Convert.ToSingle(txtFees.Text.ToString());
             if (_ApplicationType.Save()) MessageBox.Show("Application Type Info was updated.", "Update Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else MessageBox.Show($"Update Faild, Contact Admin", "Failed To Update Info", MessageBoxButtons.OK, MessageBoxIcon.Error);
 

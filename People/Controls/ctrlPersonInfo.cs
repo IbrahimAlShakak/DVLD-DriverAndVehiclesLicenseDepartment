@@ -87,7 +87,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
             lblEmail.Text = _Person.Email;
             lblPhone.Text = _Person.Phone;
             lblAddress.Text = _Person.Address;
-            lblCountry.Text = _Person.CountryInfo.CountryName;
+            lblCountry.Text = _Person.CountryInfo.Name;
             lblDOB.Text = _Person.DateOfBirth.ToString("yyyy-MM-dd");
 
             _LoadPersonImage();

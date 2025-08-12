@@ -191,7 +191,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
             else rbFemale.Checked = true;
             tbPhone.Text = _Person.Phone;
             tbEmail.Text = _Person.Email;
-            cbCountry.SelectedValue = _Person.CountryInfo.CountryID;
+            cbCountry.SelectedValue = _Person.CountryInfo.ID;
             tbAddress.Text = _Person.Address;
 
             if (!string.IsNullOrWhiteSpace(_Person.ImagePath))
@@ -255,7 +255,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
             else _Person.Gender = 1;
             _Person.Phone = tbPhone.Text.Trim();
             _Person.Email = tbEmail.Text.Trim();
-            _Person.NationalityCountryID = clsCountry.Find(cbCountry.SelectedIndex).CountryID;
+            _Person.NationalityCountryID = clsCountry.Find(cbCountry.SelectedIndex).ID;
             _Person.Address = tbAddress.Text.Trim();
 
             if (_Person.Save())

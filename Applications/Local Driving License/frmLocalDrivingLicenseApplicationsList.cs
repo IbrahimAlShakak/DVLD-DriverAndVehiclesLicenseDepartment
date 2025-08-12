@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLD_BusinessLayer;
+using DVLD_DriverAndVehiclesLicenseDepartment.Tests;
 
 namespace DVLD_DriverAndVehiclesLicenseDepartment.Applications.Local_Driving_License
 {
@@ -50,7 +51,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Applications.Local_Driving_Lic
         }
         private void cbFilters_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbFilters.SelectedItem?.ToString() == "None")
+            if (cbFilters.SelectedItem?.ToString() == "None")
             {
                 tbInputFilter.Visible = false;
             }
@@ -63,7 +64,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Applications.Local_Driving_Lic
         private void tbInputFilter_TextChanged(object sender, EventArgs e)
         {
             string FilterColumn = "";
-            switch(cbFilters.Text)
+            switch (cbFilters.Text)
             {
                 case "None":
                     FilterColumn = "None";
@@ -82,7 +83,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Applications.Local_Driving_Lic
                     break;
             }
 
-            if(FilterColumn == "None" || String.IsNullOrEmpty(tbInputFilter.Text))
+            if (FilterColumn == "None" || String.IsNullOrEmpty(tbInputFilter.Text))
             {
                 _dataLocalLicenseApplicationsList.DefaultView.RowFilter = "";
                 lblNumberOfRecords.Text = dgvLocalLicenseApplicationsList.Rows.Count.ToString();
@@ -116,7 +117,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Applications.Local_Driving_Lic
             int ID = _GetLocalDrivingLicneseApplicationIdOfSelectedRow();
             if (MessageBox.Show($"Are you sure you want to delete application with ID = {ID}", "Be Careful Deletion Request", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
             {
-                if (clsLocalDrivingLicenseApplication.FindLocalLicenseApplication(ID).Delete())
+                if (clsLocalDrivingLicenseApplication.FindByID(ID).Delete())
                     MessageBox.Show("Local driving application was deleted successfully!", "Deletion Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             _Refresh();
@@ -136,8 +137,8 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Applications.Local_Driving_Lic
         private void cancelApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int ID = _GetLocalDrivingLicneseApplicationIdOfSelectedRow();
-            clsLocalDrivingLicenseApplication LDLApplication = clsLocalDrivingLicenseApplication.FindLocalLicenseApplication(ID);
-            if(LDLApplication.SetCacelled())  _Refresh();
+            clsLocalDrivingLicenseApplication LDLApplication = clsLocalDrivingLicenseApplication.FindByID(ID);
+            if (LDLApplication.SetCacelled()) _Refresh();
         }
 
         private void dgvLocalLicenseApplicationsList_MouseDown(object sender, MouseEventArgs e)
@@ -151,7 +152,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Applications.Local_Driving_Lic
                     dgvLocalLicenseApplicationsList.Rows[hit.RowIndex].Selected = true;
                     int TestPassed = Convert.ToInt32(dgvLocalLicenseApplicationsList.CurrentRow.Cells["PassedTestCount"].Value);
                     string Status = dgvLocalLicenseApplicationsList.CurrentRow.Cells["Status"].Value.ToString(); ;
-                    if(Status != "New")
+                    if (Status != "New")
                     {
                         cmsScheduleTest.Enabled = false;
                     }
@@ -184,6 +185,31 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Applications.Local_Driving_Lic
                     }
                 }
             }
+        }
+
+        private void cmsScheduleVisionTest_Click(object sender, EventArgs e)
+        {
+            int ID = _GetLocalDrivingLicneseApplicationIdOfSelectedRow();
+            frmTestAppointmentsList frm = new frmTestAppointmentsList(ID, clsTestType.enTestType.VisionTest);
+            frm.ShowDialog();
+            _Refresh();
+
+        }
+
+        private void cmsScheduleTheoryTest_Click(object sender, EventArgs e)
+        {
+            int ID = _GetLocalDrivingLicneseApplicationIdOfSelectedRow();
+            frmTestAppointmentsList frm = new frmTestAppointmentsList(ID, clsTestType.enTestType.WrittenTest);
+            frm.ShowDialog();
+            _Refresh();
+        }
+
+        private void cmsSchedulePracticalTest_Click(object sender, EventArgs e)
+        {
+            int ID = _GetLocalDrivingLicneseApplicationIdOfSelectedRow();
+            frmTestAppointmentsList frm = new frmTestAppointmentsList(ID, clsTestType.enTestType.StreetTest);
+            frm.ShowDialog();
+            _Refresh();
         }
     }
 }

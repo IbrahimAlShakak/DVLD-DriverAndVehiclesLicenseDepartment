@@ -41,7 +41,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Applications
 
             //  Application Fees
             clsApplicationType ApplicationType = clsApplicationType.FindApplicationType(1);
-            lblApplicationFees.Text = ApplicationType.ApplicationFees.ToString();
+            lblApplicationFees.Text = ApplicationType.Fees.ToString();
 
             //  User
             lblCreatedBy.Text = clsGlobal.LoggedInUser.UserName;
@@ -64,7 +64,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Applications
         {
             if (_Mode == enMode.EditMode)
             {
-                _LDLApplication = clsLocalDrivingLicenseApplication.FindLocalLicenseApplication(_LDLApplicaitonID);
+                _LDLApplication = clsLocalDrivingLicenseApplication.FindByID(_LDLApplicaitonID);
 
                 ctrlPersonInfoWithFilter1.LoadPersonInfo(_LDLApplication.Applicant.PersonId);
 
@@ -77,7 +77,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Applications
                 cbLicenseClasses.Text = _LDLApplication.LicenseClassInfo.ClassName;
 
                 clsApplicationType ApplicationType = clsApplicationType.FindApplicationType(1);
-                lblApplicationFees.Text = ApplicationType.ApplicationFees.ToString();
+                lblApplicationFees.Text = ApplicationType.Fees.ToString();
 
                 lblCreatedBy.Text = clsGlobal.LoggedInUser.UserName;
             }
