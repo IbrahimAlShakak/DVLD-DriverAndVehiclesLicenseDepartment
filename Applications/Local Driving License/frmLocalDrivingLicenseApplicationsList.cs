@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLD_BusinessLayer;
 using DVLD_DriverAndVehiclesLicenseDepartment.Tests;
@@ -119,6 +113,8 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Applications.Local_Driving_Lic
             {
                 if (clsLocalDrivingLicenseApplication.FindByID(ID).Delete())
                     MessageBox.Show("Local driving application was deleted successfully!", "Deletion Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Local driving application was not deleted!", "Deletion Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             _Refresh();
         }
@@ -138,7 +134,14 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Applications.Local_Driving_Lic
         {
             int ID = _GetLocalDrivingLicneseApplicationIdOfSelectedRow();
             clsLocalDrivingLicenseApplication LDLApplication = clsLocalDrivingLicenseApplication.FindByID(ID);
-            if (LDLApplication.SetCacelled()) _Refresh();
+            if (LDLApplication.SetCacelled())
+            {
+                MessageBox.Show("Local driving application was cancelled!", "Cancelled Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _Refresh();
+            }
+            else MessageBox.Show("Local driving application was not cancelled!", "Cancellation Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
         }
 
         private void dgvLocalLicenseApplicationsList_MouseDown(object sender, MouseEventArgs e)
@@ -150,8 +153,12 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Applications.Local_Driving_Lic
                 {
                     dgvLocalLicenseApplicationsList.ClearSelection();
                     dgvLocalLicenseApplicationsList.Rows[hit.RowIndex].Selected = true;
-                    int TestPassed = Convert.ToInt32(dgvLocalLicenseApplicationsList.CurrentRow.Cells["PassedTestCount"].Value);
-                    string Status = dgvLocalLicenseApplicationsList.CurrentRow.Cells["Status"].Value.ToString(); ;
+
+                    int _SelectLocaldrivingLicenseApplicationID = _GetLocalDrivingLicneseApplicationIdOfSelectedRow();
+                    clsLocalDrivingLicenseApplication _SelectedLDLApplication = clsLocalDrivingLicenseApplication.FindByID(_SelectLocaldrivingLicenseApplicationID);
+                    int _NumberOfPassedTests = _SelectedLDLApplication.NumberOfPassedTests();
+                    string Status = _SelectedLDLApplication.StatusText;
+
                     if (Status != "New")
                     {
                         cmsScheduleTest.Enabled = false;
@@ -159,7 +166,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Applications.Local_Driving_Lic
                     else
                     {
                         cmsScheduleTest.Enabled = true;
-                        switch (TestPassed)
+                        switch (_NumberOfPassedTests)
                         {
                             case 0:
                                 cmsScheduleVisionTest.Enabled = true;
@@ -175,6 +182,9 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Applications.Local_Driving_Lic
                                 cmsScheduleVisionTest.Enabled = false;
                                 cmsScheduleTheoryTest.Enabled = false;
                                 cmsSchedulePracticalTest.Enabled = true;
+                                break;
+                            case 3:
+                                cmsScheduleTest.Enabled = false;
                                 break;
                             default:
                                 cmsScheduleVisionTest.Enabled = false;
