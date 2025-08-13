@@ -47,6 +47,7 @@
     <Compile Include="DataAccessSettings.cs" />
     <Compile Include="DriversData.cs" />
     <Compile Include="LicenseClassesData.cs" />
+    <Compile Include="LicensesData.cs" />
     <Compile Include="LocalDrivingLicensesData.cs" />
     <Compile Include="PeopleData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
