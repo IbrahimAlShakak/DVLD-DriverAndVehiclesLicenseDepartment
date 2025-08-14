@@ -76,6 +76,12 @@
     <Compile Include="Applications\Local Driving License\frmLocalDrivingLicenseApplicationsList.Designer.cs">
       <DependentUpon>frmLocalDrivingLicenseApplicationsList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Drivers\frmDriversList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Drivers\frmDriversList.Designer.cs">
+      <DependentUpon>frmDriversList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global Classes\clsGlobal.cs" />
     <Compile Include="Global Classes\clsUtil.cs" />
     <Compile Include="Global Classes\clsValidation.cs" />
@@ -209,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\Local Driving License\frmLocalDrivingLicenseApplicationsList.resx">
       <DependentUpon>frmLocalDrivingLicenseApplicationsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drivers\frmDriversList.resx">
+      <DependentUpon>frmDriversList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -410,7 +419,9 @@
   <ItemGroup>
     <None Include="Resources\addApplicationIcon.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Drivers.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\VisionIcon.png" />
   </ItemGroup>
