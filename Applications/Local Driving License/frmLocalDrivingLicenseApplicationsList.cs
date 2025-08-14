@@ -185,6 +185,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Applications.Local_Driving_Lic
                                 break;
                             case 3:
                                 cmsScheduleTest.Enabled = false;
+                                cmsIssueDrivingLicneseForTheFirstTime.Enabled = true;
                                 break;
                             default:
                                 cmsScheduleVisionTest.Enabled = false;
