@@ -68,9 +68,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(2, 2);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(560, 131);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -82,13 +82,14 @@
             this.llShowLicenseInfo.AutoSize = true;
             this.llShowLicenseInfo.Enabled = false;
             this.llShowLicenseInfo.LinkColor = System.Drawing.Color.Blue;
-            this.llShowLicenseInfo.Location = new System.Drawing.Point(470, 107);
+            this.llShowLicenseInfo.Location = new System.Drawing.Point(461, 107);
             this.llShowLicenseInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.llShowLicenseInfo.Name = "llShowLicenseInfo";
             this.llShowLicenseInfo.Size = new System.Drawing.Size(95, 13);
             this.llShowLicenseInfo.TabIndex = 6;
             this.llShowLicenseInfo.TabStop = true;
             this.llShowLicenseInfo.Text = "Show License Info";
+            this.llShowLicenseInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llShowLicenseInfo_LinkClicked);
             // 
             // lblTestsPassed
             // 
@@ -170,9 +171,9 @@
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(2, 138);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(560, 226);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
@@ -358,7 +359,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ctrlApplicationInfo";
             this.Size = new System.Drawing.Size(565, 363);
             this.Load += new System.EventHandler(this.ctrlApplicationInfo_Load);

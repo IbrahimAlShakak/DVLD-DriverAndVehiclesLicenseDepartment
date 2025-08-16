@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tbInputFilter = new System.Windows.Forms.TextBox();
             this.lblNumberOfRecords = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,8 +38,13 @@
             this.lblTitel = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmShowPersonInfo = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmShowPersonLicenseHistory = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDriversList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbInputFilter
@@ -79,6 +85,7 @@
             this.dgvDriversList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvDriversList.BackgroundColor = System.Drawing.Color.White;
             this.dgvDriversList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDriversList.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvDriversList.Location = new System.Drawing.Point(11, 211);
             this.dgvDriversList.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDriversList.Name = "dgvDriversList";
@@ -144,6 +151,34 @@
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmShowPersonInfo,
+            this.toolStripSeparator1,
+            this.tsmShowPersonLicenseHistory});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(226, 76);
+            // 
+            // tsmShowPersonInfo
+            // 
+            this.tsmShowPersonInfo.Name = "tsmShowPersonInfo";
+            this.tsmShowPersonInfo.Size = new System.Drawing.Size(225, 22);
+            this.tsmShowPersonInfo.Text = "Show Person Info";
+            this.tsmShowPersonInfo.Click += new System.EventHandler(this.tsmShowPersonInfo_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // tsmShowPersonLicenseHistory
+            // 
+            this.tsmShowPersonLicenseHistory.Name = "tsmShowPersonLicenseHistory";
+            this.tsmShowPersonLicenseHistory.Size = new System.Drawing.Size(225, 22);
+            this.tsmShowPersonLicenseHistory.Text = "Show Person License History";
+            this.tsmShowPersonLicenseHistory.Click += new System.EventHandler(this.tsmShowPersonLicenseHistory_Click);
+            // 
             // frmDriversList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,6 +199,7 @@
             this.Load += new System.EventHandler(this.frmDriversList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDriversList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,5 +216,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTitel;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem tsmShowPersonInfo;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem tsmShowPersonLicenseHistory;
     }
 }

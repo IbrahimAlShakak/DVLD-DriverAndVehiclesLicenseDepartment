@@ -85,11 +85,29 @@
     <Compile Include="Global Classes\clsGlobal.cs" />
     <Compile Include="Global Classes\clsUtil.cs" />
     <Compile Include="Global Classes\clsValidation.cs" />
+    <Compile Include="License\Controls\ctrlDrivingLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="License\Controls\ctrlDrivingLicenseInfo.Designer.cs">
+      <DependentUpon>ctrlDrivingLicenseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="License\frmShowLicenseHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="License\frmShowLicenseHistory.Designer.cs">
+      <DependentUpon>frmShowLicenseHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="License\Local License\frmIssueLocalLicenseFirstTime.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="License\Local License\frmIssueLocalLicenseFirstTime.Designer.cs">
       <DependentUpon>frmIssueLocalLicenseFirstTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="License\Local License\frmShowLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="License\Local License\frmShowLicense.Designer.cs">
+      <DependentUpon>frmShowLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\frmLogin.cs">
       <SubType>Form</SubType>
@@ -225,8 +243,17 @@
     <EmbeddedResource Include="Drivers\frmDriversList.resx">
       <DependentUpon>frmDriversList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="License\Controls\ctrlDrivingLicenseInfo.resx">
+      <DependentUpon>ctrlDrivingLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="License\frmShowLicenseHistory.resx">
+      <DependentUpon>frmShowLicenseHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="License\Local License\frmIssueLocalLicenseFirstTime.resx">
       <DependentUpon>frmIssueLocalLicenseFirstTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="License\Local License\frmShowLicense.resx">
+      <DependentUpon>frmShowLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

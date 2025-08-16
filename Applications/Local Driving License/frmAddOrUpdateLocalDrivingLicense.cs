@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLD_BusinessLayer;
 using DVLD_DriverAndVehiclesLicenseDepartment.Global_Classes;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DVLD_DriverAndVehiclesLicenseDepartment.Applications
 {
@@ -100,8 +91,13 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Applications
         private void btnSave_Click(object sender, EventArgs e)
         {
             int LicenseClassID = clsLicenseClass.FindLicenseClassByClassName(cbLicenseClasses.Text).LicenseClassID;
-            _NewApplicationID = clsApplication.GetActiveApplicationIDForLicenseClass(_PersonID, 1, LicenseClassID);
+            _NewApplicationID = clsApplication.GetActiveApplicationIDForLicenseClass(_PersonID, (int)clsApplication.enApplicationType.NewDrivingLicense, LicenseClassID);
 
+            if(clsLicense.PersonHasLicenseForLicenseClassID(LicenseClassID, _PersonID))
+            {
+                MessageBox.Show("Person has already a license for this license class!", "Not allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (_NewApplicationID != -1)
             {
                 MessageBox.Show($"Select another License class, the selected person have an active application for the selected class with ID = {_NewApplicationID}",
@@ -113,7 +109,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Applications
             _LDLApplication.ApplicationDate = DateTime.Now;
             _LDLApplication.ApplicationStatus = clsApplication.enApplicationStatus.New;
             _LDLApplication.LastStatusDate = DateTime.Now;
-            _LDLApplication.ApplicationTypeID = 1;
+            _LDLApplication.ApplicationTypeID = (int)clsApplication.enApplicationType.NewDrivingLicense;
             _LDLApplication.PaidFees = Convert.ToSingle(lblApplicationFees.Text);
             _LDLApplication.CreatedByUserID = clsGlobal.LoggedInUser.UserID;
             _LDLApplication.LicenseClassID = LicenseClassID;

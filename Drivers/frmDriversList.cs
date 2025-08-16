@@ -2,25 +2,17 @@
 using System.Data;
 using System.Windows.Forms;
 using DVLD_BusinessLayer;
+using DVLD_DriverAndVehiclesLicenseDepartment.License;
+using DVLD_DriverAndVehiclesLicenseDepartment.People;
 
 namespace DVLD_DriverAndVehiclesLicenseDepartment.Drivers
 {
     public partial class frmDriversList : Form
     {
         private DataTable _DriversData;
-        private void _Refresh()
+        private int _GetDriverIDOfSelectedRow()
         {
-            _DriversData = clsDriver.GetAllDriversInfo();
-            dgvDriversList.DataSource = _DriversData;
-            lblNumberOfRecords.Text = dgvDriversList.Rows.Count.ToString();
-        }
-        private void _LoadFilters()
-        {
-            cbFilters.Items.Add("None");
-            cbFilters.Items.Add("Driver ID");
-            cbFilters.Items.Add("Person ID");
-            cbFilters.Items.Add("National No");
-            cbFilters.Items.Add("Full Name");
+            return Convert.ToInt32(dgvDriversList.CurrentRow.Cells["DriverID"].Value);
         }
 
         public frmDriversList()
@@ -30,9 +22,17 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Drivers
 
         private void frmDriversList_Load(object sender, EventArgs e)
         {
-            _Refresh();
-            _LoadFilters();
+            _DriversData = clsDriver.GetAllDriversInfo();
+            dgvDriversList.DataSource = _DriversData;
+            lblNumberOfRecords.Text = dgvDriversList.Rows.Count.ToString();
+
+            cbFilters.Items.Add("None");
+            cbFilters.Items.Add("Driver ID");
+            cbFilters.Items.Add("Person ID");
+            cbFilters.Items.Add("National No");
+            cbFilters.Items.Add("Full Name");
             cbFilters.SelectedIndex = 0;
+
             if (dgvDriversList.Rows.Count > 0)
             {
 
@@ -43,8 +43,6 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Drivers
                 dgvDriversList.Columns[4].HeaderText = "Date";
                 dgvDriversList.Columns[5].HeaderText = "Active Licenses";
             }
-
-
         }
 
         private void cbFilters_SelectedIndexChanged(object sender, EventArgs e)
@@ -100,13 +98,6 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Drivers
 
             lblNumberOfRecords.Text = _DriversData.Rows.Count.ToString();
         }
-
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();   
-        }
-
         private void tbInputFilter_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (cbFilters.SelectedItem?.ToString() == "Person ID" || cbFilters.SelectedItem?.ToString() == "Driver ID")
@@ -117,6 +108,26 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Drivers
                     e.Handled = true; // Block the key
                 }
             }
+        }
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void tsmShowPersonInfo_Click(object sender, EventArgs e)
+        {
+            int DriverID = _GetDriverIDOfSelectedRow();
+            int PersonID = clsDriver.FindDriverByID(DriverID).PersonID;
+            frmPersonInfo frm = new frmPersonInfo(PersonID);
+            frm.ShowDialog();
+        }
+
+        private void tsmShowPersonLicenseHistory_Click(object sender, EventArgs e)
+        {
+            int DriverID = _GetDriverIDOfSelectedRow();
+            int PersonID = clsDriver.FindDriverByID(DriverID).PersonID;
+            frmShowLicenseHistory frm = new frmShowLicenseHistory(PersonID);
+            frm.ShowDialog();
         }
     }
 }

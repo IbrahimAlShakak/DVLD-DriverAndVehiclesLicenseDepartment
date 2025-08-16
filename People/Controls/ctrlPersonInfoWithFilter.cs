@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Data.Common;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLD_BusinessLayer;
 
@@ -31,6 +24,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
                 btnAddNewPerson.Enabled = _ShowAddNewPerson;
             }
         }
+
         private bool _FilterEnabled = true;
         public bool FilterEnabled
         {
@@ -53,6 +47,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
         {
             get { return ctrlPersonInfoCard1.SelectedPersonInfo; }
         }
+
         private void _LoadFiltersInComboBox()
         {
             cbFilters.Items.Add("Person ID");
@@ -77,14 +72,12 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
                     break;
             }
 
-            if (FilterEnabled)  PersonFound(ctrlPersonInfoCard1.PersonID);
         }
         public void LoadPersonInfo (int PersonID)
         {
             cbFilters.SelectedIndex = 0;
             tbSearchInput.Text = PersonID.ToString();
             _FindPerson();
-
         }
         public ctrlPersonInfoWithFilter()
         {
@@ -104,7 +97,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
             }
 
             _FindPerson();
-
+            if (FilterEnabled) PersonFound(ctrlPersonInfoCard1.PersonID);
 
         }
         private void btnAddNewPerson_Click(object sender, EventArgs e)
@@ -158,7 +151,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
                 }
 
                 _FindPerson();
-
+                if (FilterEnabled) PersonFound(ctrlPersonInfoCard1.PersonID);
                 e.SuppressKeyPress = true;
             }
 

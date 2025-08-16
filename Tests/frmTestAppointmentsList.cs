@@ -55,7 +55,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Tests
 
             if(_LDLApplication != null)
             {
-                ctrlApplicationInfo1.LoadApplicationInfo(_LDLApplication.LocalDrivingLicenseApplicationID);
+                ctrlApplicationInfo1.LoadApplicationInfoByLocalDrivingAppID(_LDLApplication.LocalDrivingLicenseApplicationID);
             }
 
             _AllTestAppointments = clsTestAppointment.GetTestAppointmentsForLDLApplicationIDFilterTestType(_LDLApplictionID, (int)_TestType.ID);
