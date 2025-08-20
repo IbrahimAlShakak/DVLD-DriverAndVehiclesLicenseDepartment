@@ -41,11 +41,11 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
 
         public int PersonID
         {
-            get { return ctrlPersonInfoCard1.PersonID; }
+            get { return ctrlPersonCard1.PersonID; }
         }
         public clsPerson SelectedPersonInfo
         {
-            get { return ctrlPersonInfoCard1.SelectedPersonInfo; }
+            get { return ctrlPersonCard1.SelectedPersonInfo; }
         }
 
         private void _LoadFiltersInComboBox()
@@ -60,12 +60,12 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
             {
                 case "Person ID":
                     {
-                        ctrlPersonInfoCard1.LoadPersonInfo(int.Parse(tbSearchInput.Text));
+                        ctrlPersonCard1.LoadPersonInfo(int.Parse(tbSearchInput.Text));
                         break;
                     }
                 case "National Number":
                     {
-                        ctrlPersonInfoCard1.LoadPersonInfo(tbSearchInput.Text.ToString());
+                        ctrlPersonCard1.LoadPersonInfo(tbSearchInput.Text.ToString());
                         break;
                     }
                 default:
@@ -97,7 +97,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
             }
 
             _FindPerson();
-            if (FilterEnabled) PersonFound(ctrlPersonInfoCard1.PersonID);
+            if (FilterEnabled) PersonFound(ctrlPersonCard1.PersonID);
 
         }
         private void btnAddNewPerson_Click(object sender, EventArgs e)
@@ -110,7 +110,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
         {
             cbFilters.SelectedIndex = 0;
             tbSearchInput.Text = PersonID.ToString();
-            ctrlPersonInfoCard1.LoadPersonInfo(PersonID);
+            ctrlPersonCard1.LoadPersonInfo(PersonID);
         }
         private void cbFilters_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -151,7 +151,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.People.Controls
                 }
 
                 _FindPerson();
-                if (FilterEnabled) PersonFound(ctrlPersonInfoCard1.PersonID);
+                if (FilterEnabled) PersonFound(ctrlPersonCard1.PersonID);
                 e.SuppressKeyPress = true;
             }
 

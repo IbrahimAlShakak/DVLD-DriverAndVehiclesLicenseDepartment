@@ -24,7 +24,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.License.Controls
                     MessageBox.Show("Could not find this image: = " + _License.Driver.PersonInfo.ImagePath, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public void LoadDrivingLicenseInfo(int LicenseID)
+        public bool LoadDrivingLicenseInfo(int LicenseID)
         {
             _LicenseID = LicenseID;
             _License = clsLicense.FindLicenceByLicenseID(_LicenseID);
@@ -34,7 +34,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.License.Controls
                 MessageBox.Show("Could not find License ID = " + _LicenseID.ToString(),
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 _LicenseID = -1;
-                return;
+                return false;
             }
 
             lblClass.Text = _License.LicenseClassInfo.ClassName;
@@ -68,6 +68,8 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.License.Controls
             lblIsDetained.Text = "No";
 
             _LoadPersonImage();
+
+            return true;
         }
     }
 }

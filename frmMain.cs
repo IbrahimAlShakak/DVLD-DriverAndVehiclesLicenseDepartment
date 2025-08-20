@@ -12,6 +12,7 @@ using DVLD_DriverAndVehiclesLicenseDepartment.Applications;
 using DVLD_DriverAndVehiclesLicenseDepartment.Applications.Local_Driving_License;
 using DVLD_DriverAndVehiclesLicenseDepartment.Drivers;
 using DVLD_DriverAndVehiclesLicenseDepartment.Global_Classes;
+using DVLD_DriverAndVehiclesLicenseDepartment.License.International_Licenses;
 using DVLD_DriverAndVehiclesLicenseDepartment.Login;
 using DVLD_DriverAndVehiclesLicenseDepartment.Tests.Test_Types;
 using DVLD_DriverAndVehiclesLicenseDepartment.Users;
@@ -79,6 +80,12 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
         private void driversToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDriversList frm = new frmDriversList();
+            frm.ShowDialog();
+        }
+
+        private void internationalLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNewInternationalLicenseApplication frm = new frmNewInternationalLicenseApplication();
             frm.ShowDialog();
         }
     }

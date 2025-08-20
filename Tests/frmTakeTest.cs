@@ -46,7 +46,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Tests
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(rbPass.Checked == false && rbPass.Checked == false)
+            if(rbPass.Checked == false && rbFail.Checked == false)
             {
                 MessageBox.Show("Please choose the result of the test!", "This is a mandatory field!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

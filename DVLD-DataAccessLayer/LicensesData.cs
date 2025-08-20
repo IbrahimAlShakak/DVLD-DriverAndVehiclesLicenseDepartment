@@ -202,7 +202,7 @@ namespace DVLD_DataAccessLayer
                 Inner join Drivers on Licenses.DriverID = Drivers.DriverID
                 where 
                 Drivers.PersonID = @PersonID
-                Licenses.LicenseClass = @LicenseClass 
+                and Licenses.LicenseClass = @LicenseClass 
                 and Licenses.IsActive = 1";
 
             SqlCommand Command = new SqlCommand(query, Connection);
@@ -263,7 +263,7 @@ namespace DVLD_DataAccessLayer
             }
             return isFound;
         }
-        public static DataTable GetaLicensesHistoryForPerson(int PersonID)
+        public static DataTable GetLocalLicensesHistoryForPerson(int PersonID)
         {
             DataTable dt = new DataTable();
             SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
