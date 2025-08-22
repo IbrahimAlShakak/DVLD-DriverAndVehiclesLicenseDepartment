@@ -293,6 +293,34 @@ namespace DVLD_DataAccessLayer
             }
             return dt;
         }
+        public static bool DeactivateLicense(int LicenseID)
+        {
+            int rowsAffected = 0;
+
+            SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
+
+            string query = @"UPDATE Licenses SET IsActive=0 WHERE LicenseID=@LicenseID";
+
+            SqlCommand Command = new SqlCommand(query, Connection);
+            Command.Parameters.AddWithValue("@LicenseID", LicenseID);
+            try
+            {
+                Connection.Open();
+
+                rowsAffected = Command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+
+            {
+                rowsAffected = 0;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+
+            return (rowsAffected > 0);
+        }
     }
 }
 

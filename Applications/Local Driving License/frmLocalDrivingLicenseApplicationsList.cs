@@ -35,7 +35,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Applications.Local_Driving_Lic
             _dataLocalLicenseApplicationsList = clsLocalDrivingLicenseApplication.GetLocalDrivingLicenseApplicationsList();
             dgvLocalLicenseApplicationsList.DataSource = _dataLocalLicenseApplicationsList;
             lblNumberOfRecords.Text = dgvLocalLicenseApplicationsList.Rows.Count.ToString();
-            _LoadFiltersInComboBox();
+            _LoadFiltersInComboBox(); 
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -157,8 +157,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Applications.Local_Driving_Lic
 
 
 
-
-            if (Status == "Cancelled")
+           if (Status == "Cancelled")
             {
                 cmsApplicationDetails.Enabled = true;
                 cmsEditApplication.Enabled = false;

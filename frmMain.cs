@@ -9,7 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLD_DriverAndVehiclesLicenseDepartment.Application_Types;
 using DVLD_DriverAndVehiclesLicenseDepartment.Applications;
+using DVLD_DriverAndVehiclesLicenseDepartment.Applications.International_Driving_Licenses;
 using DVLD_DriverAndVehiclesLicenseDepartment.Applications.Local_Driving_License;
+using DVLD_DriverAndVehiclesLicenseDepartment.Applications.Renew_Local_Driving_License;
 using DVLD_DriverAndVehiclesLicenseDepartment.Drivers;
 using DVLD_DriverAndVehiclesLicenseDepartment.Global_Classes;
 using DVLD_DriverAndVehiclesLicenseDepartment.License.International_Licenses;
@@ -87,6 +89,19 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
         {
             frmNewInternationalLicenseApplication frm = new frmNewInternationalLicenseApplication();
             frm.ShowDialog();
+        }
+
+        private void internationalLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmInternationalLicensesList frm = new frmInternationalLicensesList();
+            frm.ShowDialog();
+        }
+
+        private void renewDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRenewLocalDrivingLicense frm = new frmRenewLocalDrivingLicense();
+            frm.ShowDialog();
+
         }
     }
 }

@@ -192,7 +192,15 @@ namespace DVLD_DataAccessLayer
         {
             DataTable dt = new DataTable();
             SqlConnection Connection = new SqlConnection(DataAccessSettings.ConnectionString);
-            string query = @" SELECT * FROM InternationalLicenses ";
+            string query = @" SELECT 
+                                InternationalLicenseID,  
+                                ApplicationID, 
+                                DriverID,
+                                IssuedUsingLocalLicenseID,
+                                IssueDate,
+                                ExpirationDate,
+                                IsActive
+                                FROM InternationalLicenses ";
             SqlCommand Command = new SqlCommand(query, Connection);
             try
             {
