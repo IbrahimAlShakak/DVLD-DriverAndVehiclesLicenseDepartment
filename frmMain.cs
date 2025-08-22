@@ -12,6 +12,7 @@ using DVLD_DriverAndVehiclesLicenseDepartment.Applications;
 using DVLD_DriverAndVehiclesLicenseDepartment.Applications.International_Driving_Licenses;
 using DVLD_DriverAndVehiclesLicenseDepartment.Applications.Local_Driving_License;
 using DVLD_DriverAndVehiclesLicenseDepartment.Applications.Renew_Local_Driving_License;
+using DVLD_DriverAndVehiclesLicenseDepartment.Applications.Replacement_Application_For_Damaged_Or_Lost_Licenses;
 using DVLD_DriverAndVehiclesLicenseDepartment.Drivers;
 using DVLD_DriverAndVehiclesLicenseDepartment.Global_Classes;
 using DVLD_DriverAndVehiclesLicenseDepartment.License.International_Licenses;
@@ -102,6 +103,12 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
             frmRenewLocalDrivingLicense frm = new frmRenewLocalDrivingLicense();
             frm.ShowDialog();
 
+        }
+
+        private void replacementForLostOrDamagedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReplacementApplicationForDamagedOrLostLicenses frm = new frmReplacementApplicationForDamagedOrLostLicenses();
+            frm.ShowDialog();
         }
     }
 }
