@@ -12,6 +12,20 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.License.Controls
             if (handler != null) handler(LicenseID);
         }
 
+        private bool _FilterEnabled = true;
+
+        public bool FilterEnabled
+        {
+            get
+            {
+                return _FilterEnabled;
+            }
+            set
+            {
+                _FilterEnabled = value;
+                gbFilter.Enabled = _FilterEnabled;
+            }
+        }
         public ctrlDrivingLicenseInfoWithFilter()
         {
             InitializeComponent();
@@ -35,6 +49,11 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.License.Controls
                 MessageBox.Show($"License with ID = {InputLicenseID} was not found!", "License Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+        }
+
+        public void LoadLicenseInfo(int LicenseID)
+        {
+            ctrlDrivingLicenseInfo1.LoadDrivingLicenseInfo(LicenseID);
         }
     }
 }
