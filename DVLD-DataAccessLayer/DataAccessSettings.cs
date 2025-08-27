@@ -4,6 +4,8 @@ namespace DVLD_DataAccessLayer
 {
     public static class DataAccessSettings
     {
-       public static string ConnectionString = "Server=.;Database=DVLD;User Id=sa;Password=sa123456;";
+        public static string ConnectionString =
+            "Data Source=.;Initial Catalog=DVLD;Integrated Security=True";
     }
 }
+

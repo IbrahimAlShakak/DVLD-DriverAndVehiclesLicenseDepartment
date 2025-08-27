@@ -361,3 +361,30 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Visual Studio
+.vs/
+bin/
+obj/
+
+# User-specific
+*.user
+*.suo
+
+# NuGet
+packages/
+*.nupkg
+
+# Logs
+*.log
+
+# Local config & credentials
+App.config
+Credentials.txt
+*.mdf
+*.ldf
+*.bak
+*.pfx
+*.snk
+*.dacpac
+*.publish.xml
