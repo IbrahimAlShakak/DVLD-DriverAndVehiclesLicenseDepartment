@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using DVLD_BusinessLayer;
-using static System.Windows.Forms.LinkLabel;
+using Microsoft.Win32;
 
 namespace DVLD_DriverAndVehiclesLicenseDepartment.Global_Classes
 {
@@ -15,10 +9,11 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Global_Classes
         public static clsUser LoggedInUser;
         public static bool SaveUsernameAndPassowrd(string UserName, string Password)
         {
-            string[] credentials = { UserName, Password };
+            string keyPath = @"HKEY_CURRENT_USER\SOFTWARE\DVLD_LoginCredentials";
             try
             {
-                File.WriteAllLines("Credentials.txt", credentials);
+                Registry.SetValue(keyPath, "UserName", UserName, RegistryValueKind.String);
+                Registry.SetValue(keyPath, "Password", Password, RegistryValueKind.String);
                 return true;
             }
             catch (Exception ex)
@@ -28,27 +23,60 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Global_Classes
         }
         public static bool GetUserNameAndPassword(ref string UserName, ref string Password)
         {
-            if(File.Exists("Credentials.txt"))
+            string keyPath = @"HKEY_CURRENT_USER\SOFTWARE\DVLD_LoginCredentials";
+
+            try
             {
-                var lines = File.ReadAllLines("Credentials.txt");
-                UserName = lines.ElementAtOrDefault(0);
-                Password = lines.ElementAtOrDefault(1);
-                return true;
+                string UsernameValue, PasswordValue;
+                UsernameValue = Registry.GetValue(keyPath, "UserName", null) as string;
+                PasswordValue = Registry.GetValue(keyPath, "Password", null) as string;
+
+                if(UsernameValue != null && PasswordValue != null)
+                {
+                    UserName = UsernameValue;
+                    Password = PasswordValue;
+                    return true;
+                } else
+                    return false;
+               
             }
-            return false;
+            catch (Exception ex)
+            {
+                return false;
+            }
+            
         }
         public static void DeleteSavedCredentials()
         {
-            if (File.Exists("Credentials.txt"))
+            string keyPath = @"SOFTWARE\DVLD_LoginCredentials";
+
+            try
             {
-                try
+                // Open the registry key in read/write mode with explicit registry view
+                using (RegistryKey baseKey = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, RegistryView.Registry64))
                 {
-                    File.Delete("Credentials.txt");
+                    using (RegistryKey key = baseKey.OpenSubKey(keyPath, true))
+                    {
+                        if (key != null)
+                        {
+                            // Delete the specified value
+                            key.DeleteValue("UserName");
+                            key.DeleteValue("Password");
+
+
+                            Console.WriteLine("Successfully deleted value  from registry key ");
+                        }
+                    }
                 }
-                catch (Exception ex)
-                {
-                }
-            } 
+            }
+            catch (UnauthorizedAccessException)
+            {
+                Console.WriteLine("UnauthorizedAccessException: Run the program with administrative privileges.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
         }
     }
 }
