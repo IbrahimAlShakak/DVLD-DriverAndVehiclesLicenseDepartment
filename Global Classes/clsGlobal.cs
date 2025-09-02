@@ -18,6 +18,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Global_Classes
             }
             catch (Exception ex)
             {
+                clsUtil.DocumentErrorToEventLog(ex.Message);
                 return false;
             }
         }
@@ -42,6 +43,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Global_Classes
             }
             catch (Exception ex)
             {
+                clsUtil.DocumentErrorToEventLog(ex.Message);
                 return false;
             }
             
@@ -71,11 +73,11 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Global_Classes
             }
             catch (UnauthorizedAccessException)
             {
-                Console.WriteLine("UnauthorizedAccessException: Run the program with administrative privileges.");
+                clsUtil.DocumentErrorToEventLog("UnauthorizedAccessException");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred: {ex.Message}");
+                clsUtil.DocumentErrorToEventLog(ex.Message);
             }
         }
     }

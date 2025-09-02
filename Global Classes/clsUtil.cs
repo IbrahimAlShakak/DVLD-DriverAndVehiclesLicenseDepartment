@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace DVLD_DriverAndVehiclesLicenseDepartment.Global_Classes
 {
@@ -27,6 +25,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Global_Classes
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error creating folder: " + ex.Message);
+                    clsUtil.DocumentErrorToEventLog(ex.Message);
                     return false;
                 }
             }
@@ -57,11 +56,23 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Global_Classes
             catch (IOException iox)
             {
                 MessageBox.Show(iox.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsUtil.DocumentErrorToEventLog(iox.Message);
                 return false;
             }
 
             sourceFile = destinationFile;
             return true;
+        }
+        public static void DocumentErrorToEventLog(string ErrorMessage)
+        {
+            string sourceName = "DVLD";
+
+            if(!EventLog.SourceExists(sourceName))
+            {
+                EventLog.CreateEventSource(sourceName, "Application");  
+            }
+
+            EventLog.WriteEntry(sourceName, ErrorMessage, EventLogEntryType.Error); 
         }
 
     }

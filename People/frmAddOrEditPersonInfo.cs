@@ -212,6 +212,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment
                     }
                     catch (IOException)
                     {
+                        clsUtil.DocumentErrorToEventLog("IOException");
                     }
                 }
 
