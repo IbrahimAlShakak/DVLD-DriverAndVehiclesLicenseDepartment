@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLD_BusinessLayer;
 using DVLD_DriverAndVehiclesLicenseDepartment.Global_Classes;
@@ -21,11 +15,10 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Login
         }
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            string UserName = "", Password = "";
-            if (clsGlobal.GetUserNameAndPassword(ref UserName, ref Password))
+            string UserName = "";
+            if (clsGlobal.GetUserName(ref UserName))
             {
                 tbUserName.Text = UserName;
-                tbPassword.Text = Password;
                 chkRememberMe.Checked = true;
             }
 
@@ -55,7 +48,8 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Login
                 return;
             }
 
-            string InputUserName = tbUserName.Text.Trim().ToString(), InputPassword = tbPassword.Text;
+            string InputUserName = tbUserName.Text.Trim().ToString();
+            string InputPassword = clsValidatoin.ComputeHash(tbPassword.Text);
 
             loginUser = clsUser.FindUser(InputUserName);
 

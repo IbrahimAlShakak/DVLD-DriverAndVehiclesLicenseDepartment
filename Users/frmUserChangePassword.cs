@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLD_BusinessLayer;
+using DVLD_DriverAndVehiclesLicenseDepartment.Global_Classes;
 
 namespace DVLD_DriverAndVehiclesLicenseDepartment.Users
 {
@@ -28,7 +23,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Users
                 e.Cancel = true;
                 errorProvider1.SetError(txtCurrentPassword, "This is a mandatory field, can not be blank!");
             }
-            else if (txtCurrentPassword.Text != _User.Password)
+            else if (clsValidatoin.ComputeHash(txtCurrentPassword.Text)!= _User.Password)
             {
                 e.Cancel = true;
                 errorProvider1.SetError(txtConfirmPassword, "Passwords is not corrrect!!");
@@ -70,6 +65,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Users
             {
                 e.Cancel = false;
                 errorProvider1.SetError(txtNewPassword, null);
+                
             }
         }
         private void frmUserChangePassword_Load(object sender, EventArgs e)
@@ -85,8 +81,10 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Users
         {
             if(ValidateChildren())
             {
-                _User.Password = txtNewPassword.Text;
+                _User.Password = clsValidatoin.ComputeHash(txtNewPassword.Text);
                 if (!_User.Save()) MessageBox.Show("Error while saving the new passowrd occurred!", "Failed to Save New Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else MessageBox.Show("Password is changed", "Change password confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
         }
     }

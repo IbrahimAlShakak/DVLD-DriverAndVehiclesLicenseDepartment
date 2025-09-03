@@ -22,7 +22,7 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Global_Classes
                 return false;
             }
         }
-        public static bool GetUserNameAndPassword(ref string UserName, ref string Password)
+        public static bool GetUserName(ref string UserName)
         {
             string keyPath = @"HKEY_CURRENT_USER\SOFTWARE\DVLD_LoginCredentials";
 
@@ -30,12 +30,10 @@ namespace DVLD_DriverAndVehiclesLicenseDepartment.Global_Classes
             {
                 string UsernameValue, PasswordValue;
                 UsernameValue = Registry.GetValue(keyPath, "UserName", null) as string;
-                PasswordValue = Registry.GetValue(keyPath, "Password", null) as string;
 
-                if(UsernameValue != null && PasswordValue != null)
+                if(UsernameValue != null)
                 {
                     UserName = UsernameValue;
-                    Password = PasswordValue;
                     return true;
                 } else
                     return false;
